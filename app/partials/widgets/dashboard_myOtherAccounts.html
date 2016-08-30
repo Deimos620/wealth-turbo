@@ -1,0 +1,66 @@
+﻿<!-- WIDGET: My Other Accounts -->
+<div class="widget-myOtherAccounts">
+    <div>
+        <div class="row widget-ui-heading">
+            <div class="col-xs-9"><h2>My Other Accounts</h2></div>
+            <div class="col-xs-3 text-right">
+                <div class="btn-group" role="group">
+                    <a class="btn btn-default" data-toggle="collapse" data-target=".js-widget-myOtherAccounts-collapse"><i class="fa fa-caret-up"></i></a>
+                    <a class="btn btn-default" data-toggle="collapse" data-target=".js-widget-myOtherAccounts-collapse"><i class="fa fa-caret-down"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="widget-ui-body">
+            <div class="row data-headings">
+                <div ng-class="{'col-sm-8': userPref.defaultView2Column, 'col-sm-4': !userPref.defaultView2Column}">Type</div>
+                <div ng-class="{'hidden': userPref.defaultView2Column, 'col-sm-3': !userPref.defaultView2Column}">Account</div>
+                <div ng-class="{'hidden': userPref.defaultView2Column, 'col-sm-3': !userPref.defaultView2Column}">Linked To</div>
+                <div ng-class="{'col-sm-4': userPref.defaultView2Column, 'col-sm-2': !userPref.defaultView2Column}" class="text-right">Balance</div>
+            </div>
+            <div class="panel panel-default" ng-repeat="item in data.otherAccounts">
+                <div ng-repeat="entity in item.entities">
+                    <div class="panel-heading" role="tab" data-target="#{{divname[item.type.name]}}" data-toggle="collapse" ng-click="toggle(divname[item.type.name])">
+                        <div class="row">
+                            <div class="col-sm-8 text-left">
+                                <h4 class="panel-title">
+                                    <i class="fa fa-caret-down" id="{{divname[item.type.name]}}-id"></i>
+                                    <span>{{entity.description}}</span>
+                                </h4>
+                            </div>
+                            <div class="col-sm-4 text-right">
+                                <h4 class="panel-title">
+                                    <span>{{entity.points}}</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse in" id="{{divname[item.type.name]}}">
+                    <div class="panel-collapse collapse in js-widget-myOtherAccounts-collapse js-widget-collapse" role="tabpanel">
+                        <div class="panel-body">
+                            <div class="data-rows">
+                                <div class="row data-row-heading">
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-6 text-right"><i class="fa fa-spinner"></i></div>
+                                </div>
+                                <div class="row">
+                                    <div ng-class="{'col-sm-8': userPref.defaultView2Column, 'col-sm-4': !userPref.defaultView2Column}">{{entity.description}}</div>
+                                    <div ng-class="{'hidden': userPref.defaultView2Column, 'col-sm-3': !userPref.defaultView2Column}"></div>
+                                    <div ng-class="{'hidden': userPref.defaultView2Column, 'col-sm-3': !userPref.defaultView2Column}">
+                                        <div ng-include src="'partials/widgets/linkedItemIcons.html'"></div>
+                                    </div>
+                                    <div ng-class="{'col-sm-4': userPref.defaultView2Column, 'col-sm-2': !userPref.defaultView2Column}" class="text-right">{{entity.points}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row widget-ui-footer">
+            <div class="col-sm-12">
+                <a class="btn btn-default" ui-sref="add.account"><i class="fa fa-plus"></i></a> Add other accounts here
+            </div>
+        </div>
+    </div>
+</div>

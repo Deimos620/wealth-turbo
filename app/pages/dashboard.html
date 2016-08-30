@@ -1,0 +1,13 @@
+<header>
+    <div ng-controller="NavbarController" ng-include src="'partials/navs/sub_dashboard.html'"></div>
+</header>
+<div class="container-bg">
+    <div class="container">
+        <div class="widget-ui widget-ui-dashboard" ng-controller="widgetDashboard_whatIOwn" ng-include src="'partials/widgets/dashboard_whatIOwn.html'" ng-class="{'widget-left': userPref.defaultView2Column}"></div>
+        <div class="widget-ui widget-ui-dashboard" ng-controller="widgetDashboard_whatIOwe" ng-include src="'partials/widgets/dashboard_whatIOwe.html'" ng-class="{'widget-right': userPref.defaultView2Column}"></div>
+        <div class="widget-ui widget-ui-dashboard" ng-controller="widgetDashboard_myNetWealth" ng-include src="'partials/widgets/dashboard_myNetWealth.html'" style="clear:both;"></div>
+        <div class="widget-ui widget-ui-dashboard" ng-controller="widgetDashboard_myOtherAccounts" ng-include src="'partials/widgets/dashboard_myOtherAccounts.html'" ng-class="{'widget-left': userPref.defaultView2Column}"></div>
+        <div class="widget-ui widget-ui-dashboard" ng-controller="widgetDashboard_myInsurance" ng-include src="'partials/widgets/dashboard_myInsurance.html'" ng-class="{'widget-right': userPref.defaultView2Column}"></div>
+        <!--<div class="widget-ui widget-ui-dashboard" ng-controller="widgetDashboard_growMyWealth" ng-include src="'partials/widgets/dashboard_growMyWealth.html'" style="clear: left;" ng-class="{'widget-left': userPref.defaultView2Column}"></div>-->
+    </div>
+</div>

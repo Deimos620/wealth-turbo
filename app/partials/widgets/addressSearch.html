@@ -1,0 +1,138 @@
+<div ng-show="addressEntryMode == 'flat'">
+    <div class="row" ng-show="addressItem.id != null || addressItem.rpDataPropertyId !=null">
+        <div class="col-sm-12">
+            <input type="text" class="form-control" ng-model="addressItem.addressText" ng-click="clearAddress()" readonly />
+        </div>
+    </div>
+    <div class="row" ng-show="addressItem.id == null && addressItem.rpDataPropertyId == null">
+        <div class="col-sm-12">
+            <input type="text" class="form-control" ng-model="searchTerm" ng-keypress="findAddress($event)" />
+        </div>
+    </div>
+    <div class="row" ng-show="addressItem.id == null" style="position:relative;">
+        <div class="col-sm-12" style="position: absolute;z-index: 33333;width: 100%;">
+            <a class="list-group-item" ng-repeat="result in searchResults" ng-click="selectAddress(result)">{{result.line}}</a>
+        </div>
+    </div>
+</div>
+
+<div ng-show="addressEntryMode == 'full'">
+    <div class="row">
+        <div class="col-sm-12">
+            <button class="btn btn-info btn-xs" data-bind="click: changeToFlat"><span class="glyphicon glyphicon-search"></span> Search </button>
+        </div>
+    </div>
+
+    <div class="row" data-bind="visible: allowStructureChange">
+        <div class="col-sm-12">
+            <div class="form-group">
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default" data-bind="css: { active: isPhysical() }, click: function () { changeStructure('physical') }">Physical</button>
+                    <button type="button" class="btn btn-default" data-bind="css: { active: isPOBox() }, click: function () { changeStructure('pobox') }">PO Box</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div data-bind="visible: isPhysical">
+
+        <div class="col-sm-12 form-group add-search">
+
+
+            <input type="text" class="col-sm-5 col-xs-12 input-gen" data-bind="value: unitNumber" placeholder="Unit Number." />
+            <span class="col-sm-1 hidden-xs">&nbsp;</span>
+
+            <input type="text" class="col-sm-6 col-xs-12 input-gen" data-bind="value: streetNumber" placeholder="Street Number" />
+
+        </div>
+
+
+        <div class="col-sm-12 form-group add-search">
+
+
+
+            <input type="text" class="form-control" data-bind="value: propertyName" placeholder="Property Name" />
+
+        </div>
+
+        <div class="col-sm-12 form-group add-search">
+
+
+
+
+            <input type="text" class="form-control" data-bind="value: streetName" placeholder="Street Name" />
+
+        </div>
+
+        <div class="col-sm-12 form-group add-search">
+
+
+
+
+
+
+            <select class="form-control custom-select Input" data-bind="options: WealthHub.types.getTypes('streetTypes'),
+                                                    optionsText: 'name',
+                                                    optionsValue: 'id',
+                                                    value: streetType,
+                                                    optionsCaption: 'Choose Type'"></select>
+
+
+
+        </div>
+
+        <div data-bind="visible: isPOBox">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <!--<label>P.O. Box</label>-->
+                    <input class="form-control form-control-border-dark Input" type="text" placeholder="P.O. Box" data-bind="value: poBox">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 form-group add-search">
+
+
+
+            <div data-bind="validationElement: suburb">
+                <input type="text" data-bind="value: suburb" class="form-control" placeholder="Suburb" />
+            </div>
+        </div>
+
+        <div class="col-sm-12 form-group add-search">
+
+
+
+
+            <div data-bind="validationElement: state, visible: isAustralian()" style="margin-bottom:16px;">
+                <input class="form-control" placeholder="State" data-bind="value: WealthHub.types.getLocalName('statesByCountry_' + countryId(), state())"
+                readonly>
+            </div>
+            <div data-bind="validationElement: stateText, visible: !isAustralian()" style="margin-bottom:16px;">
+                <input class="form-control" type="text" placeholder="State" data-bind="value: stateText">
+            </div>
+
+
+
+            <div data-bind="validationElement: postCode">
+                <input class="form-control" placeholder="Post code" data-bind="value: postCode, visible: isAustralian()" readonly>
+                <input class="form-control" type="text" placeholder="Post code" data-bind="value: postCode, visible: !isAustralian()" readonly>
+            </div>
+
+
+        </div>
+
+        <div class="col-sm-12 form-group add-search">
+            <div data-bind="validationElement: countryId">
+                <select class="form-control custom-select" data-bind="options: WealthHub.types.getTypes('countries'),
+                                                    optionsText: 'name',
+                                                    optionsValue: 'id',
+                                                    value: countryId,
+                                                    optionsCaption: 'Country ...'">
+
+                </select>
+            </div>
+        </div>
+    </div>

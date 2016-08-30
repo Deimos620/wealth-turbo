@@ -1,0 +1,21 @@
+﻿<ul class="nav navbar-nav navbar-right">
+    <li class="dropdown" id="tour_6">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-plus"></i> ADD</a>
+        <ul class="dropdown-menu">
+            <li ng-class="{ active: isActiveNav($state,'add.account') }"><a ui-sref="add.account">Accounts</a></li>
+            <li><a ng-click="openAddModal('asset')">Assets</a></li>
+            <li><a ng-click="openAddModal('liability')">Liabilities</a></li>
+            <li><a ng-click="openAddModal('insurance')">Insurance</a></li>
+        </ul>
+    </li>
+    <li id="tour_7"><a ng-click="refreshAll()" class="clickable"><i class="fa fa-repeat"></i> REFRESH ALL</a></li>
+    <li class="dropdown" id="tour_8">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i> EDIT</a>
+        <ul class="dropdown-menu">
+            <li ng-class="{ active: isActiveNav($state,'edit.account') }"><a ui-sref="edit.account">Accounts</a></li>
+            <li ng-class="{ active: isActiveNav($state,'edit.asset') }"><a ui-sref="edit.asset">Assets</a></li>
+            <li ng-class="{ active: isActiveNav($state,'edit.liability') }"><a ui-sref="edit.liability">Liabilities</a></li>
+            <li ng-class="{ active: isActiveNav($state,'edit.insurance') }"><a ui-sref="edit.insurance">Insurance</a></li>
+        </ul>
+    </li>
+</ul>

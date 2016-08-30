@@ -1,0 +1,6 @@
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connect to <span class="caret"></span></a>
+<ul class="dropdown-menu">
+    <li ng-repeat="item in institutions">
+        <a ng-click="$parent.openInstitution(item.iid)">{{item.desc}}<span class="pull-right"><i class="fa fa-long-arrow-right"></i></span></a>
+    </li>
+</ul>

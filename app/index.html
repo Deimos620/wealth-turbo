@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Firstmac application administration console">
+    <meta name="author" content="Firstmac Limited">
+    <link rel="icon" href="../../favicon.ico">
+    <title>Firstmac Wealth Hub</title>
+    <link href='//fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type='text/css'>
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
+    <link href="bower_components/ocModal/dist/css/ocModal.full.css" rel="stylesheet" type='text/css'>
+    <link href="bower_components/angular-bootstrap3-datepicker/dist/ng-bs3-datepicker.css" rel="stylesheet" type='text/css' />
+    <link href="bower_components/jquery-joyride/joyride-2.1.css" rel="stylesheet" type="text/css" />
+    <link href="css/styles.css" rel="stylesheet" type='text/css'>
+    <style type="text/css">
+    .dev-missing-text-l {
+        color: #ffc1c0 !important;
+    }
+    .dev-missing-text-d {
+        color: #f96855 !important;
+    }
+    .dev-missing-bg {
+        background-color: #ffc1c0 !important;
+    }
+    </style>
+</head>
+
+<body>
+    <div ng-controller="IndexController">
+        <script type="text/javascript" id="script-ewjclient"></script>
+        <header>
+            <div ng-controller="NavbarController" ng-include src="'partials/navs/header.html'"></div>
+        </header>
+        <div ui-view></div>
+        <footer>
+            <div ng-controller="FooterController" ng-include src="'partials/navs/footer.html'"></div>
+        </footer>
+
+        <script data-main="js/require-conf" src="bower_components/requirejs/require.js"></script>
+
+        <div style="display:none;">
+        <oauth2 authorization-url="{{urls.authSite}}"
+                sign-out-url="{{urls.rootHost}}"
+                sign-out-append-token="false"
+                client-id="wealthhub"
+                redirect-url="{{urls.siteBase}}"
+                response-type="id_token token"
+                scope="openid profile roles sitetype crumbsidentity customeridentity"
+                acr_values="tenant:wealthhub_ultracs signup:false">
+        </oauth2>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+﻿<!-- Welcome Tour - BEGIN -->
+<div class="tour-bar" style="display:none;" ng-if="$state.current.allowTour">
+    <div class="row tour-bar-info" for="tour_start">
+        <div class="col-sm-9 text-left">
+            Would you like to take a tour? We'll highlight a few handy things you can do with Wealth Hub.
+        </div>
+        <div class="col-sm-3 text-right">
+            <span class="secondary-action" ng-click="tourHide()">NO THANKS</span>
+            <span class="primary-action" ng-click="tourStart()">START TOUR</span>
+        </div>
+    </div>
+    <div class="row tour-bar-info" for="tour_1" style="display: none;">
+        <div class="col-sm-2 text-left">
+            <span class="secondary-action" ng-click="tourPrevStep()">BACK</span>
+        </div>
+        <div class="col-sm-8 text-center">
+            Next topic: <span class="tour-bar-link" ng-click="tourNextStep()"><u>Your connected accounts</u></span>
+        </div>
+        <div class="col-sm-2 text-right">
+            <span class="primary-action" ng-click="tourEnd()">END TOUR</span>
+        </div>
+    </div>
+    <div class="row tour-bar-info" for="tour_2" style="display: none;">
+        <div class="col-sm-2 text-left">
+            <span class="secondary-action" ng-click="tourPrevStep()">BACK</span>
+        </div>
+        <div class="col-sm-8 text-center">
+            Next topic: <span class="tour-bar-link" ng-click="tourNextStep()"><u>Offers & suggestions</u></span>
+        </div>
+        <div class="col-sm-2 text-right">
+            <span class="primary-action" ng-click="tourEnd()">END TOUR</span>
+        </div>
+    </div>
+    <div class="row tour-bar-info" for="tour_3" style="display: none;">
+        <div class="col-sm-2 text-left">
+            <span class="secondary-action" ng-click="tourPrevStep()">BACK</span>
+        </div>
+        <div class="col-sm-8 text-center">
+            Next topic: <span class="tour-bar-link" ng-click="tourNextStep()"><u>Quick access to your institutions</u></span>
+        </div>
+        <div class="col-sm-2 text-right">
+            <span class="primary-action" ng-click="tourEnd()">END TOUR</span>
+        </div>
+    </div>
+    <div class="row tour-bar-info" for="tour_4" style="display: none;">
+        <div class="col-sm-2 text-left">
+            <span class="secondary-action" ng-click="tourPrevStep()">BACK</span>
+        </div>
+        <div class="col-sm-8 text-center">
+            Next topic: <span class="tour-bar-link" ng-click="tourNextStep()"><u>Your preferences</u></span>
+        </div>
+        <div class="col-sm-2 text-right">
+            <span class="primary-action" ng-click="tourEnd()">END TOUR</span>
+        </div>
+    </div>
+    <div class="row tour-bar-info" for="tour_5" style="display: none;">
+        <div class="col-sm-2 text-left">
+            <span class="secondary-action" ng-click="tourPrevStep()">BACK</span>
+        </div>
+        <div class="col-sm-8 text-center">
+            Next topic: <span class="tour-bar-link" ng-click="tourNextStep()"><u>Add an institution to Wealth Hub</u></span>
+        </div>
+        <div class="col-sm-2 text-right">
+            <span class="primary-action" ng-click="tourEnd()">END TOUR</span>
+        </div>
+    </div>
+    <div class="row tour-bar-info" for="tour_6" style="display: none;">
+        <div class="col-sm-2 text-left">
+            <span class="secondary-action" ng-click="tourPrevStep()">BACK</span>
+        </div>
+        <div class="col-sm-8 text-center">
+            Next topic: <span class="tour-bar-link" ng-click="tourNextStep()"><u>Refreshing your balances</u></span>
+        </div>
+        <div class="col-sm-2 text-right">
+            <span class="primary-action" ng-click="tourEnd()">END TOUR</span>
+        </div>
+    </div>
+    <div class="row tour-bar-info" for="tour_7" style="display: none;">
+        <div class="col-sm-2 text-left">
+            <span class="secondary-action" ng-click="tourPrevStep()">BACK</span>
+        </div>
+        <div class="col-sm-8 text-center">
+            Next topic: <span class="tour-bar-link" ng-click="tourNextStep()"><u>Editing your connected institutions</u></span>
+        </div>
+        <div class="col-sm-2 text-right">
+            <span class="primary-action" ng-click="tourEnd()">END TOUR</span>
+        </div>
+    </div>
+    <div class="row tour-bar-info" for="tour_8" style="display: none;">
+        <div class="col-sm-2 text-left">
+            <span class="secondary-action" ng-click="tourPrevStep()">BACK</span>
+        </div>
+        <div class="col-sm-offset-8 col-sm-2 text-right">
+            <span class="primary-action" ng-click="tourEnd()">END TOUR</span>
+        </div>
+    </div>
+</div>
+<!-- Welcome Tour - END -->
+<nav class="navbar navbar-default" ng-if="isAuthenticated()">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="dashboard">
+                <img alt="Brand" src="img/logo-wh.png">
+            </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li ng-class="{ active: isActiveNav($state,'my-wealth') }" id="tour_1"><a ui-sref="my-wealth.my-net-wealth">My Wealth</a></li>
+                <li ng-class="{ active: isActiveNav($state,'my-accounts') }" id="tour_2"><a ui-sref="my-accounts">My Accounts</a></li>
+                <!--<li ng-class="{ active: isActiveNav($state,'grow-my-wealth') }" id="tour_3"><a>Grow My Wealth</a></li>-->
+                <li class="dropdown" id="tour_4" ng-controller="widget_navConnectTo" ng-include src="'partials/navs/header_connectTo.html'">
+                    <!--
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connect to <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Commonwealth Bank<span class="pull-right"><i class="fa fa-long-arrow-right"></i></span></a></li>
+                        <li><a href="#">ANZ Bank<span class="pull-right"><i class="fa fa-long-arrow-right"></i></span></a></li>
+                        <li><a href="#">Qantas<span class="pull-right"><i class="fa fa-long-arrow-right"></i></span></a></li>
+                    </ul>
+                    -->
+                </li>
+            </ul>
+            <div class="navbar-text navbar-right">
+                <span style="margin-right:15px;" class="dev-missing-text-l">Last login 29 FEB 2016</span>
+                <div class="btn-group" id="tour_5">
+                    <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</a>
+                    <ul class="dropdown-menu">
+                        <li ng-class="{ active: isActiveNav($state,'profile.my-personal-details') }"><a ui-sref="profile.my-personal-details">Profile</a></li>
+                        <li ng-class="{ active: isActiveNav($state,'help-support.contact-us') }"><a ui-sref="help-support.contact-us">Help &amp; Support</a></li>
+                        <li>
+                            <oauth2 authorization-url="{{urls.authSite}}"
+                                    sign-out-url="{{urls.endSession}}"                 
+                                    sign-out-append-token="true"
+                                    sign-out-redirect-url="{{urls.siteBase}}"
+                                    client-id="wealthhub"
+                                    redirect-url="{{urls.siteBase}}"
+                                    response-type="id_token token"
+                                    scope="openid profile roles sitetype crumbsidentity customeridentity"
+                                    acr_values="tenant:wealthhub_crumbs signup:false"
+                                    button-class="null"
+                                    sign-out-text="Logout"
+                                    template="partials/oauth-button.html">
+                            </oauth2>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<nav class="navbar navbar-default" ng-if="!isAuthenticated()">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="">
+                <img alt="Brand" src="img/logo-wh.png">
+            </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">How It Works <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">How it Works</a></li>
+                        <li><a href="#">Key Features</a></li>
+                        <li><a href="#">Why Join</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <div class="navbar-text navbar-right">
+                <div class="btn-group" role="group">
+                    <a class="btn btn-default" ng-class="{ active: isActiveNav($state,'sign-up.init') }" ui-sref="sign-up.init">Sign Up</a>
+                    <a class="btn btn-default" ng-class="{ active: isActiveNav($state,'sign-in') }" ui-sref="sign-in">Sign In</a>
+                </div>
+            </div>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>

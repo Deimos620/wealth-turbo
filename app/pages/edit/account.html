@@ -1,0 +1,67 @@
+﻿<header class="sub-nav">
+    <div ng-controller="NavbarController" ng-include src="'partials/navs/sub_addedit.html'"></div>
+</header>
+<div class="container-bg dark">
+    <div class="container">
+        <h1 class="text-center">Edit my connected accounts</h1>
+        <p class="text-center">
+            Hide accounts to exclude them from the My Accounts section, or to hide them from everywhere in Wealth Hub.<br>
+            Your data is still there; it’s just hidden. Or you can remove an institution from Wealth Hub altogether.
+        </p>
+
+        <div class="ui-edit-account">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Institution</th>
+                        <th>Category</th>
+                        <th class="bg-success"><strong>Show</strong></th>
+                        <th class="bg-danger"><strong>Hide</strong><br>From my accounts</th>
+                        <th class="bg-danger"><strong>Hide</strong><br>Everywhere</th>
+                        <th class="bg-danger"><strong>Remove</strong><br>Institution</th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="item in data">
+                    <tr class="institution">
+                        <td>{{item.institution.name}}</td>
+                        <td>&nbsp;</td>
+                        <td class="bg-success">&nbsp;</td>
+                        <td class="bg-danger">&nbsp;</td>
+                        <td class="bg-danger">&nbsp;</td>
+                        <td class="bg-danger">
+                            <a ng-click="removeInstitution(item)"><i class="fa fa-times text-danger"></i></a>
+                        </td>
+                    </tr>
+                    <tr ng-repeat="account in item.accounts">
+                        <td>{{account.accountName}}</td>
+                        <td>
+                            <select class="form-control" ng-options="opt.name for opt in accountTypes track by opt.id" ng-model="account.category.id" ng-change="updateAccount()">
+                                <option value="">Please select...</option>
+                            </select>
+                        </td>
+                        <td class="bg-success">
+                            <div class="radio">
+                                <input id="{{ 'option1-' + $index }}" type="radio" ng-model="account.viewPreference.id" value="1" ng-change="updateAccount()">
+                                <label for="{{ 'option1-' + $index }}"><span><span></span></span></label>
+                            </div>
+                        </td>
+                        <td class="bg-danger">
+                            <div class="radio">
+                                <input id="{{ 'option2-' + $index }}" type="radio" ng-model="account.viewPreference.id" value="2" ng-change="updateAccount()"
+                                <label for="{{ 'option2-' + $index }}"><span><span></span></span></label>
+                            </div>
+                        </td>
+                        <td class="bg-danger">
+                            <div class="radio">
+                                <input id="{{ 'option3-' + $index }}" type="radio" ng-model="account.viewPreference.id" value="3" ng-change="updateAccount()">
+                                <label for="{{ 'option3-' + $index }}"><span><span></span></span></label>
+                            </div>
+                        </td>
+                        <td class="bg-danger">&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

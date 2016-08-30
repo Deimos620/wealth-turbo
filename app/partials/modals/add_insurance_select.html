@@ -1,0 +1,132 @@
+﻿<div style="max-width: 550px;">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="closeModal()"><i class="fa fa-times"></i></button>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h4 class="modal-title">Add insurance</h4>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-4 col-xs-6">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="openFormModal('insurance_homeContents')">
+                            <span id="sp" class="img insurance-home-and-contents">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'insurance_homeContents'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Home &amp; Contents</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="openFormModal('insurance_landlord')">
+                            <span class="img insurance-landlord">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'insurance_landlord'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Landlord</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="openFormModal('insurance_tpd')">
+                            <span class="img insurance-disablement">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'insurance_tpd'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Total &amp; Permanent Disablement (TPD)</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="openFormModal('insurance_incomeProtection')">
+                            <span class="img insurance-income-protection">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'insurance_incomeProtection'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Income Protection</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="openFormModal('insurance_life')">
+                            <span class="img insurance-life">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'insurance_life'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Life</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6" ng-hide="displayOthers">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="showOthers()">
+                            <span class="img insurance-view-more"></span>
+                        </a>
+                    </div>
+                    <p>View More</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6" ng-show="displayOthers">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="openFormModal('insurance_trauma')">
+                            <span class="img insurance-trauma">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'insurance_trauma'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Trauma Insurance</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6" ng-show="displayOthers">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="openFormModal('insurance_motor')">
+                            <span class="img insurance-motor">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'insurance_motor'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Motor</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6" ng-show="displayOthers">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="openFormModal('insurance_caravan')">
+                            <span class="img insurance-caravan-and-trailer">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'insurance_caravan'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Caravan</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6" ng-show="displayOthers">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="openFormModal('insurance_marine')">
+                            <span class="img insurance-marine">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'insurance_marine'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Marine Insurance</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

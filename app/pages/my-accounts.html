@@ -1,0 +1,39 @@
+﻿<header class="sub-nav">
+    <div ng-controller="NavbarController" ng-include src="'partials/navs/sub_myAccounts.html'"></div>
+</header>
+<div class="container-bg light">
+    <div class="container ui-my-accounts">
+
+        <div class="heading">
+            <div class="row">
+                <div class="col-sm-6">Institution</div>
+                <div class="col-sm-2 text-left">Account</div>
+                <div class="col-sm-2 text-right">Available</div>
+                <div class="col-sm-2 text-right">Balance</div>
+            </div>
+        </div>
+        <div class="data" ng-repeat="item in data">
+            <div class="row institution-heading">
+                <div class="col-sm-4">
+                    <a href="#">{{item.institution.name}}</a>
+                </div>
+                <div class="col-sm-8 text-right">
+                    <span class="text-success">Refreshed at {{item.refreshed | amDateFormat:'HH:mm DD/YY'}}</span>
+                </div>
+            </div>
+            <div class="row" ng-repeat="account in item.accounts">
+                <div class="col-sm-6">{{account.accountName}}</div>
+                <div class="col-sm-2 text-left">{{account.accountNumber}}</div>
+                <div class="col-sm-2 text-right">{{account.available | currency}}</div>
+                <div class="col-sm-2 text-right">{{account.balance | currency}}</div>
+            </div>
+        </div>
+
+        <div class="row footer">
+            <div class="col-sm-6">
+                <a class="btn btn-default"><i class="fa fa-plus"></i></a> Connect to more institutions here
+            </div>
+        </div>
+
+    </div>
+</div>

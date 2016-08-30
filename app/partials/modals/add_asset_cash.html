@@ -1,0 +1,82 @@
+﻿<div style="width:630px;">
+    <div class="modal-header">
+        <button type="button" class="btn btn-default pull-left" ng-click="closeModal()">BACK</button>
+        <button type="button" class="close" ng-click="closeModal()"><i class="fa fa-times"></i></button>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h4 class="modal-title">Add your cash</h4>
+                <p class="text-center">Add the details of your asset to have this included in your net wealth.</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Type</label>
+                <div class="col-sm-8 col-xs-12">
+                    <select class="form-control" ng-options="opt.name for opt in types.cashTypes track by opt.id" ng-model="assetItem.cash.type" name="asset-cash-type" validation="required">
+                        <option value="">Please select...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Description</label>
+                <div class="col-sm-8 col-xs-12">
+                    <input type="text" class="form-control" ng-model="assetItem.description" name="asset-description" validation="required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Value amount</label>
+                <div class="col-sm-8 col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="text" class="form-control" ng-model="assetItem.cash.amount" name="asset-cash-amount" validation="numeric:alt=Please enter a dollar amount as numbers only e.g. 450000.00|required" validation-error-to="asset-cash-amount" />
+                    </div>
+                    <div class="validation-offset validation text-danger" id="asset-cash-amount"></div> 
+                </div>
+            </div>
+            <div class="form-group" ng-show="assetItem.cash.type.id == 2">
+                <label class="col-sm-4 col-xs-12 control-label">Interest rate</label>
+                <div class="col-sm-8 col-xs-12">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-disabled="assetItem.cash.type.id != 2" ng-model="assetItem.cash.termDeposit.interestRate" name="asset-cash-termDeposit-interestRate" validation="required" validation-error-to="asset-cash-termDeposit-interestRate" />
+                        <span class="input-group-addon">%</span>
+                    </div>
+                    <div class="validation-offset validation text-danger" id="asset-cash-termDeposit-interestRate"></div> 
+                </div>
+            </div>
+            <div class="form-group" ng-show="assetItem.cash.type.id == 2">
+                <label class="col-sm-4 col-xs-12 control-label">Maturity date</label>
+                <div class="col-sm-8 col-xs-12">
+                    <ng-bs3-datepicker ng-disabled="assetItem.cash.type.id != 2" ng-model="assetItem.cash.termDeposit.maturity" name="asset-cash-termDeposit-maturity" language="en-au" date-format="DD/MM/YYYY" validation="required" validation-error-to="asset-cash-termDeposit-maturity"></ng-bs3-datepicker>
+                    <div class="validation-offset validation text-danger" id="asset-cash-termDeposit-maturity"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Is this part of your SMSF?</label>
+                <div class="col-sm-8 col-xs-12">
+                    <label class="form-selection">
+                        <input type="radio" ng-model="assetItem.cash.smsfRelated" name="asset-cash-smsfRelated" validation="required" validation-error-to="asset-cash-smsfRelated" data-ng-value="true" />
+                        <span class="round-selection opt-yes">YES</span>
+                    </label>
+                    <label class="form-selection">
+                        <input type="radio" ng-model="assetItem.cash.smsfRelated" name="asset-cash-smsfRelated" validation="required" validation-error-to="asset-cash-smsfRelated" data-ng-value="false" />
+                        <span class="round-selection opt-no">NO</span>
+                    </label>
+                    <div class="validation move-down text-danger" id="asset-cash-smsfRelated"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-primary" ng-show="isAdd" ng-click="saveAsset('cash')">SAVE</button>
+                <button class="btn btn-primary" ng-show="!isAdd" ng-click="updateItem()">UPDATE</button>
+                <button class="btn btn-default" ng-show="!isAdd" ng-click="removeItem()">DELETE</button>
+            </div>
+        </div>
+    </div>
+</div>

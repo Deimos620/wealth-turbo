@@ -1,0 +1,110 @@
+<header class="sub-nav">
+    <div ng-controller="NavbarController" ng-include src="'partials/navs/sub_profile.html'"></div>
+</header>
+<div class="container-bg light">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1>My personal details</h1>
+            </div>
+        </div>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Full name</label>
+                <div class="col-sm-offset-1 col-sm-7 col-xs-12">
+                    <input type="text" class="form-control" ng-model="profileData.externalDetails.fullName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Email address</label>
+                <div class="col-sm-offset-1 col-sm-7 col-xs-12">
+                    <input type="text" class="form-control" ng-model="profileData.externalDetails.email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Address</label>
+                <div class="col-sm-offset-1 col-sm-7 col-xs-12">
+                    <address-search model="profileData.externalDetails.address"></address-search>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Phone</label>
+                <div class="col-sm-offset-1 col-sm-7 col-xs-12">
+                    <span style="color:#303030;">{{profileData.externalDetails.phone}}</span>
+                    <br />
+                    <span>For your security, please call us on 13 12 20 to update your phone number</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Driver's licence</label>
+                <div class="col-sm-offset-1 col-sm-7 col-xs-12">
+                    <input type="text" class="form-control" ng-model="profileData.externalDetails.driversLicense">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Date of birth</label>
+                <div class="col-sm-offset-1 col-sm-7 col-xs-12">
+                    <ng-bs3-datepicker ng-model="profileDOB" language="en-au" date-format="DD/MM/YYYY"></ng-bs3-datepicker>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Gender</label>
+                <div class="col-sm-offset-1 col-sm-7 col-xs-12">
+                    <select class="form-control" ng-options="opt.name for opt in types.genderTypes track by opt.id" ng-model="profileData.externalDetails.gender">
+                        <option value="">Please select...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-5 col-sm-7 col-xs-12">
+                    <h2>My household</h2>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Marital status</label>
+                <div class="col-sm-offset-1 col-sm-7 col-xs-12">
+                    <select class="form-control" ng-options="opt.name for opt in types.maritalStatusTypes track by opt.id" ng-model="profileData.externalDetails.maritalStatus">
+                        <option value="">Please select...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Number of dependants</label>
+                <div class="col-sm-offset-1 col-sm-2 col-xs-4">
+                    <input type="text" class="form-control" ng-model="profileData.externalDetails.dependantsLower">
+                </div>
+                <div class="col-sm-5 col-xs-8">
+                    <span style="display:block;margin-top:7px;">11 years or younger</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-5 col-sm-2 col-xs-4">
+                    <input type="text" class="form-control" ng-model="profileData.externalDetails.dependantsHigher">
+                </div>
+                <div class="col-sm-5 col-xs-8">
+                    <span style="display:block;margin-top:7px;">12 years or older</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Annual salary</label>
+                <div class="col-sm-offset-1 col-sm-7 col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="text" class="form-control" ng-model="profileData.externalDetails.grossSalary" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-5 col-sm-7 col-xs-12">
+                    <a href="#">Why do we ask these details?</a>
+                </div>
+            </div>
+        </div>
+        <!--SAVE BUTTON-->
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-primary" ng-click="updateProfile()">UPDATE</button>
+            </div>
+        </div>
+    </div>
+</div>

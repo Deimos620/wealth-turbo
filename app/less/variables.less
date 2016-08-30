@@ -1,0 +1,140 @@
+@gray-darker:  #1e1e1e;
+@gray-dark:    #3f3f3f;
+@gray:         #e0e0e0;
+@gray-light:   #eeeeee;
+@gray-lighter: #f5f5f5;
+
+@brand-1:       #002d79; //Dark Blue
+@brand-2:       #0081bc; //Light Blue
+@brand-3:       #006000; //Green
+@brand-4:       #ffc00c; //Yellow
+@brand-5:       #ff61a6; //Pink
+@brand-6:       #ff4618; //Orange
+@brand-7:       #6954a3; //Purple
+@brand-success: #84A121;
+@brand-info:    #5bc0de;
+@brand-warning: #f0ad4e;
+@brand-danger:  #F96855;
+
+@black: #000000;
+@white: #FFFFFF;
+
+@bodyBackground: #3b3b3b;
+@textHeadings:   #303030;
+@textBodycopy:   #5b5b5b;
+@linkColorLight: #4bb7f9;
+@linkColorDark:  #0080BC;
+
+@lineColor: @textHeadings;
+
+@graphColor-asset-cash:        #0b6012;
+@graphColor-asset-property:    #3e7519;
+@graphColor-asset-investments: #6e8b1d;
+@graphColor-asset-super:       #9da123;
+@graphColor-asset-vehicles:    #cdb729;
+@graphColor-asset-other:       #ffce00;
+
+@graphColor-liability-creditCards:     #7c133e;
+@graphColor-liability-homeLoans:       #a0173e;
+@graphColor-liability-investmentLoans: #CC211D;
+@graphColor-liability-personalLoans:   #cc211d;
+@graphColor-liability-carLoans:        #fa6667;
+@graphColor-liability-businessLoans:   #ff83a6;
+@graphColor-liability-lineOfCredit:    #fda1be;
+@graphColor-liability-marginLoan:      #fcc0d6;
+@graphColor-liability-other:           #ffc1c0;
+
+@primaryFontFamily: 'Roboto', sans-serif;
+@baseFontSize:	16px;
+@baseLineHeight: 1.42857143;
+
+.font-size(@sizeValue) {
+  @remValue: @sizeValue;
+  @pxValue: (@sizeValue * 10);
+  font-size: ~"@{pxValue}px"; 
+  font-size: ~"@{remValue}rem";
+}
+
+.gradient-button {
+    background: #044f96;
+    background: -moz-linear-gradient(top,  #044f96 0%, #1168b7 100%);
+    background: -webkit-linear-gradient(top,  #044f96 0%,#1168b7 100%);
+    background: linear-gradient(to bottom,  #044f96 0%,#1168b7 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#044f96', endColorstr='#1168b7',GradientType=0 );
+}
+.button-hover {
+    background: #1381BA;
+}
+
+.gradient-asset {
+    background: #1b7521;
+    background: -moz-linear-gradient(top,  #1b7521 0%, #c2b527 100%);
+    background: -webkit-linear-gradient(top,  #1b7521 0%,#c2b527 100%);
+    background: linear-gradient(to bottom,  #1b7521 0%,#c2b527 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b7521', endColorstr='#c2b527',GradientType=0 );
+}
+
+.gradient-liability {
+    background: #f74c44;
+    background: -moz-linear-gradient(top,  #f74c44 0%, #fc7881 100%);
+    background: -webkit-linear-gradient(top,  #f74c44 0%,#fc7881 100%);
+    background: linear-gradient(to bottom,  #f74c44 0%,#fc7881 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f74c44', endColorstr='#fc7881',GradientType=0 );
+}
+
+.gradient-netWealth {
+    background: #6a4d8a;
+    background: -moz-linear-gradient(top,  #6a4d8a 0%, #984d8b 100%);
+    background: -webkit-linear-gradient(top,  #6a4d8a 0%,#984d8b 100%);
+    background: linear-gradient(to bottom,  #6a4d8a 0%,#984d8b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6a4d8a', endColorstr='#984d8b',GradientType=0 );
+}
+
+.borderRadius {
+    border-radius: 0;
+}
+
+.noBorder {
+    border: 0 none;
+}
+
+.defaultBorder {
+    border: 1px solid @lineColor;
+    border-radius: 0;
+}
+
+.dropshadow {
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.noMargin {
+    margin: 0;
+}
+
+.noPadding {
+    padding: 0;
+}
+
+.bottomRight {
+    position: absolute;
+    bottom:0;
+    right:0;
+}
+
+.center {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+}
+
+.alignVertical{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+

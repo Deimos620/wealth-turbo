@@ -1,0 +1,260 @@
+﻿<header class="sub-nav">
+    <div ng-controller="NavbarController" ng-include src="'partials/navs/sub_addedit.html'"></div>
+</header>
+<!-- Step 1 -->
+<div class="container-bg light" ng-show="stage=='select'">
+    <div class="container">
+
+        <h1 class="text-center">Add accounts to my digital safe</h1>
+        <p class="text-center">
+            All account information - passwords, account names, account numbers and aggregated data - is encrypted<br>
+            and stored in your digital safe. Private information is never disclosed to any third party.
+        </p>
+    </div>
+</div>
+<div class="container-bg dark" ng-show="stage=='select'">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="list-group list-group-category">
+                    <div class="list-group-item" ng-class="{ active: category.id == $parent.selectedCategory }" ng-repeat="category in categories">
+                        <div ng-click="selectCategory(category.id)">
+                            {{category.name}}
+                            <i class="fa fa-caret-right pull-right" ng-show="category.id == $parent.selectedCategory"></i>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" placeholder="Start typing..." ng-model="searchTerm" ng-keyup="findInstitution($event)">
+
+                <div class="list-group">
+                    <div class="list-group-item" ng-repeat="result in searchResults">
+                        <div ng-click="selectInstitution($index, result.id)">{{result.name}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h2>My Selection</h2>
+                <div class="list-group list-group-selections">
+                    <div class="list-group-item row" ng-repeat="sInst in selectedInstitutions">
+                        <div class="col-sm-7">
+                            <span class="selected"><strong>{{sInst.name}}</strong></span>
+                        </div>
+                        <div class="col-sm-5 text-right">
+                            <a ng-click="unselectInstitution($index)"><i class="fa fa-times text-danger"></i></a>
+                        </div>
+                    </div>
+                    <div class="list-group-item row" ng-repeat="cInst in currentInstitutions">
+                        <div class="col-sm-7">
+                            <span class="selected"><strong>{{cInst.desc}}</strong></span>
+                        </div>
+                        <div class="col-sm-5 text-right">
+                            <span ng-click="deleteFormEwise($index)">Already added</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:40px;">
+                    <div class="col-sm-12">
+                        <button class="btn btn-primary" style="width: 150px;" ng-click="goToLogin()">NEXT</button>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:40px;">
+                    <div class="col-sm-12 text-center">
+                        <img src="img/download-button.png">
+                        <h3>Security message 1</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer
+                            adipiscing elit, sed diam nonummy nibh euismod
+                            tincidunt ut laoreet dolore magna aliquam erat
+                            volutpat del amoret gortyum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Step 2 -->
+<div class="container-bg light" ng-show="stage=='login'">
+    <div class="container">
+
+        <h1 class="text-center">Enter login details to connect to my accounts</h1>
+        <p class="text-center">
+            All account information - passwords, account names, account numbers and aggregated data - is encrypted<br>
+            and stored in your digital safe. Private information is never disclosed to any third party.
+        </p>
+    </div>
+</div>
+<div class="container-bg dark" ng-show="stage=='login'">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-4">&nbsp;</div>
+            <div class="col-sm-4">
+                <div class="panel panel-default panel-accountLoginDetails" ng-repeat="sInst in selectedInstitutions">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-12 text-center">
+                                <h2>{{sInst.name}}</h2>
+                            </div>
+                        </div>
+                        <div class="row form-group" ng-repeat="prompt in sInst.promptData.prompts">
+                            <div class="col-xs-12">
+                                <input type="text" class="form-control" placeholder="{{prompt.value}}" ng-model="prompt.enteredValue" ng-if="prompt.type == 0" />
+                                <input type="password" class="form-control" placeholder="{{prompt.value}}" ng-model="prompt.enteredValue" ng-if="prompt.type == 1" />
+                            </div>
+                        </div>
+                        <!--<div class="row form-group">
+                            <div class="col-xs-12">
+                                <input type="password" class="form-control" placeholder="PIN" />
+                            </div>
+                        </div>-->
+                        <div class="row">
+                            <div class="col-xs-12" ng-hide="loginValid == -1">
+                                <a ng-click="$parent.testLogin(sInst)">Test login</a>
+                            </div>
+                            <div class="col-xs-12" ng-show="loginValid == 0">
+                                <i class="fa fa-spinner fa-spin"></i>
+                                Testing login
+                            </div>
+                            <div class="col-xs-12" ng-show="loginValid == 1">
+                                <span class="fa-stack">
+                                    <i class="fa fa-circle fa-stack-2x text-success"></i>
+                                    <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                                </span>
+                                Login successful
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default panel-accountLoginDetails">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <button class="btn btn-default" ng-click="goToSelect()">ADD ANOTHER</button>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" ng-click="connectInstitutions()">CONNECT</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">&nbsp;</div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:40px;">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <img src="img/download-button.png">
+                <h3>Security message 2</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer
+                    adipiscing elit, sed diam nonummy nibh euismod
+                    tincidunt ut laoreet dolore magna aliquam erat
+                    volutpat del amoret gortyum.
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- Step 3 -->
+<div class="container-bg light" ng-show="stage=='confirm'">
+    <div class="container">
+
+        <h1 class="text-center">The following accounts have been added to my digital safe</h1>
+        <p class="text-center">
+            All account information - passwords, account names, account numbers and aggregated data - is encrypted<br>
+            and stored in your digital safe. Private information is never disclosed to any third party.
+        </p>
+    </div>
+</div>
+<div class="container-bg dark" ng-show="stage=='confirm'">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="panel panel-default panel-accountLoginDetails">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h2>
+                                    <span class="fa-stack">
+                                        <i class="fa fa-circle fa-stack-2x text-success"></i>
+                                        <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    Institution 1
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-7">Account 1</div>
+                            <div class="col-sm-3 text-right">111111111</div>
+                            <div class="col-sm-2 text-right">$30,000.00</div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-7">Account 2</div>
+                            <div class="col-sm-3 text-right">222222222</div>
+                            <div class="col-sm-2 text-right">$30,000.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default panel-accountLoginDetails">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h2>
+                                    <span class="fa-stack">
+                                        <i class="fa fa-circle fa-stack-2x text-success"></i>
+                                        <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    Institution 2
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-7">Account 1</div>
+                            <div class="col-sm-3 text-right">999999999</div>
+                            <div class="col-sm-2 text-right">$30,000.00</div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-7">Account 2</div>
+                            <div class="col-sm-3 text-right">111122223333</div>
+                            <div class="col-sm-2 text-right">$30,000.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default panel-accountLoginDetails">
+                    <div class="panel-body">
+                        <div class="form-group text-center">
+                            <button class="btn btn-default" ng-click="goToSelect()">ADD ANOTHER</button>
+                            <button class="btn btn-primary" ng-click="goToDashboard()">DONE</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">&nbsp;</div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:40px;">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <img src="img/download-button.png">
+                <h3>Security message 3</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer
+                    adipiscing elit, sed diam nonummy nibh euismod
+                    tincidunt ut laoreet dolore magna aliquam erat
+                    volutpat del amoret gortyum.
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="loading-overlay" ng-show="isLoading">
+    <div class="message">
+        <p class="text-center"><i class="fa fa-spinner fa-spin fa-5x" aria-hidden="true"></i></p>
+        <h1 class="text-center">Connecting to my accounts</h1>
+    </div>
+</div>

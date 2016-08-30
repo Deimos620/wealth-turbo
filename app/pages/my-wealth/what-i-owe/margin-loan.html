@@ -1,0 +1,92 @@
+<header class="sub-nav">
+    <div ng-controller="NavbarController" ng-include src="'partials/navs/sub_myWealth.html'"></div>
+</header>
+<div class="container-bg dark">
+    <div class="container">
+        <a ui-sref="my-wealth.what-i-owe" class="btn btn-default pull-left">BACK</a>
+        <h1 class="text-center">
+            My total margin loan debit: {{data.wealthPosition.currentTotalLiabilityValue | currency}}
+        </h1>
+    </div>
+</div>
+<div class="container-bg light">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row" style="margin-top:40px;">
+                    <div class="col-sm-offset-2 col-sm-4">
+                        <p class="text-right form-control-static md-text">Changes to this total over</p>
+                    </div>
+                    <div class="col-sm-2" style="padding-left:1px; padding-right:0;">
+                        <select class="form-control md-text" ng-model="userPref.defaultReportPeriod" ng-change="setReportPeriod()">
+                            <option value="3 months">3 months</option>
+                            <option value="6 months">6 months</option>
+                            <option value="12 months">12 months</option>
+                            <option value="this year">This year</option>
+                            <option value="last year">Last year</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <a id="popover-whatIOwe-1" class="btn btn-default" data-toggle="popover" title="Accuracy of info" data-content='To get a more accurate calculation of your net wealth, make sure you add any financial accounts to Wealth Hub, as well as any offline assets & liabilities. You can add these manually by selecting the "ADD" button.' ng-click="showPopover('popover-whatIOwe-1')">?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8 text-center">
+                <canvas id="bar" class="chart chart-bar"
+                        chart-data="barGraph.data"
+                        chart-labels="barGraph.labels"
+                        chart-colours="barGraph.colours"
+                        chart-options="barGraph.options"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <p ng-if="data.wealthPosition.differentialLiabilities >= 0"><i class="fa fa-long-arrow-up text-success"></i> +{{data.wealthPosition.differentialLiabilities | number:2}}% change over {{data.wealthPosition.growthPositionMonths}} months</p>
+                <p ng-if="data.wealthPosition.differentialLiabilities < 0"><i class="fa fa-long-arrow-down text-danger"></i> {{data.wealthPosition.differentialLiabilities | number:2}}% change over {{data.wealthPosition.growthPositionMonths}} months</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="container-bg dark">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-sm-2 text-center doughnut-container" ng-repeat="doughnut in doughnutGraphs">
+                <canvas id="doughnut" class="chart chart-doughnut"
+                        chart-data="doughnut.data"
+                        chart-labels="doughnut.labels"
+                        chart-colours="doughnut.colours"
+                        chart-options="doughnut.options"></canvas>
+                <div class="doughnut-inner">
+                    {{doughnut.displayData}}%
+                </div>
+                <p class="text-center">
+                    {{doughnut.labels[1]}}<br />
+                    {{doughnut.amount | currency}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-right">
+                <div class="btn-group" role="group">
+                    <a class="btn btn-default" data-toggle="collapse" data-target=".js-widget-collapse"><i class="fa fa-caret-up"></i></a>
+                    <a class="btn btn-default" data-toggle="collapse" data-target=".js-widget-collapse"><i class="fa fa-caret-down"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="widget-ui widget-ui-page widget-ui-hideHeading" ng-controller="widgetDashboard_whatIOwe" ng-include src="'partials/widgets/dashboard_whatIOwe.html'"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="container-bg light">
+    <div class="container">
+        <div class="widget-ui widget-ui-page" ng-controller="widgetDashboard_growMyWealth" ng-include src="'partials/widgets/dashboard_growMyWealth.html'"></div>
+    </div>
+</div>-->

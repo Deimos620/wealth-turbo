@@ -1,0 +1,1443 @@
+/*@import "../bower_components/bootstrap/less/bootstrap.less";*/
+body {
+  background-color: #3b3b3b;
+  color: #5b5b5b;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+a {
+  color: #0080BC;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:link,
+a:visited {
+  color: #0080BC;
+  text-decoration: none;
+}
+a:focus,
+a:hover {
+  color: #5b5b5b;
+  text-decoration: none;
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin: 20px 0;
+}
+h1,
+.h1 {
+  font-size: 24px;
+  font-weight: 500;
+}
+h2,
+.h2 {
+  font-size: 21px;
+  font-weight: 500;
+}
+h3,
+.h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
+.md-text {
+  font-size: 18px !important;
+  font-weight: 500;
+}
+.lg-text {
+  font-size: 24px !important;
+  font-weight: 500;
+}
+.text-success {
+  color: #84A121;
+}
+.text-danger {
+  color: #F96855;
+}
+.bg-success {
+  background-color: rgba(11, 96, 18, 0.3);
+}
+.bg-danger {
+  background-color: rgba(255, 70, 24, 0.3);
+}
+.bg-gray-darker {
+  background-color: #1e1e1e;
+}
+.bg-gray-dark {
+  background-color: #3f3f3f;
+}
+.bg-gray {
+  background-color: #e0e0e0;
+}
+.bg-gray-light {
+  background-color: #eeeeee;
+}
+.bg-gray-lighter {
+  background-color: #f5f5f5;
+}
+.clickable {
+  cursor: pointer;
+}
+/* BUTTONS */
+.btn-default,
+a.btn-default {
+  background: none;
+  border: 1px solid #303030;
+  border-radius: 0;
+  color: #303030;
+  font-weight: 500;
+  opacity: 1;
+  min-width: 35px;
+}
+.btn-default:hover,
+a.btn-default:hover,
+.btn-default:focus,
+a.btn-default:focus,
+.btn-default.active,
+a.btn-default.active {
+  background-color: #e0e0e0;
+  border-color: #303030;
+  box-shadow: none;
+  color: #303030;
+}
+.btn-primary,
+a.btn-primary {
+  background: #044f96;
+  background: -moz-linear-gradient(top, #044f96 0%, #1168b7 100%);
+  background: -webkit-linear-gradient(top, #044f96 0%, #1168b7 100%);
+  background: linear-gradient(to bottom, #044f96 0%, #1168b7 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#044f96', endColorstr='#1168b7', GradientType=0);
+  border: 0 none;
+  border-radius: 0;
+  color: #FFFFFF;
+  font-weight: 500;
+  opacity: 1;
+  min-width: 120px;
+  min-height: 35px;
+  text-transform: uppercase;
+}
+.btn-primary:hover,
+a.btn-primary:hover,
+.btn-primary:focus,
+a.btn-primary:focus,
+.btn-primary.active,
+a.btn-primary.active {
+  background: #1381BA;
+  box-shadow: none;
+  color: #FFFFFF;
+  outline: none;
+}
+/* FORMS */
+.form-control {
+  font-weight: 400;
+  padding: 0;
+  background: none;
+  border: 0 none;
+  border-radius: 0;
+  border-bottom: 1px solid #303030;
+  box-shadow: none;
+  font-size: 16px;
+}
+.form-control:focus {
+  box-shadow: none;
+  border-color: #303030;
+}
+input.form-control,
+textarea.form-control {
+  background-color: #FFFFFF;
+  border: 0 none;
+  padding: 6px 12px;
+}
+textarea.form-control {
+  height: 150px;
+  resize: none;
+}
+.form-group {
+  margin-bottom: 30px;
+}
+.input-group .input-group-addon {
+  background: none;
+  border: 0 none;
+}
+/*Radio*/
+.radio {
+  margin: 0;
+}
+.radio input[type=radio]:not(old) {
+  margin: 0;
+  padding: 0;
+  height: 27px;
+  opacity: 0;
+  cursor: pointer;
+}
+.radio input[type=radio]:not(old) + label {
+  display: inline-block;
+  line-height: 27px;
+  padding: 0;
+}
+.radio input[type=radio]:not(old) + label > span {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: 0 4px 6px 0;
+  border: 1px solid white;
+  border-radius: 50%;
+  background: #FFFFFF;
+  vertical-align: bottom;
+}
+.radio input[type=radio]:not(old):checked + label > span {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+}
+.radio input[type=radio]:not(old):checked + label > span > span {
+  display: block;
+  width: 50%;
+  height: 50%;
+  margin: 4px;
+  border: 0 none;
+  border-radius: 50%;
+  background: #303030;
+}
+/*Checkbox*/
+.checkbox {
+  margin: 0;
+}
+.checkbox input[type=checkbox]:not(old) {
+  margin: 0;
+  padding: 0;
+  height: 27px;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkbox input[type=checkbox]:not(old) + label {
+  display: inline-block;
+  line-height: 27px;
+  padding: 0;
+}
+.checkbox input[type=checkbox]:not(old) + label > span {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: 0 4px 6px 0;
+  border: 1px solid white;
+  border-radius: 4px;
+  background: #FFFFFF;
+  vertical-align: bottom;
+}
+.checkbox input[type=checkbox]:not(old):checked + label > span {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+}
+.checkbox input[type=checkbox]:not(old):checked + label > span:before {
+  content: "\f00c";
+  font-family: FontAwesome;
+  display: block;
+  color: #303030;
+  line-height: 17px;
+  text-align: center;
+}
+.checkbox input[type=checkbox]:not(old):checked + label > span > span {
+  display: none;
+}
+/*Multiple Select*/
+select[multiple].form-control {
+  background-color: #FFFFFF;
+  border: 0 none;
+}
+select[multiple].form-control[disabled] {
+  background-color: #e0e0e0;
+}
+select[multiple].form-control option {
+  padding: 5px 5px;
+}
+select[multiple].form-control option:focus {
+  outline: none;
+}
+/* Validation */
+.validation {
+  background-color: #F96855;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: normal;
+  padding: 5px;
+}
+.validation:empty {
+  display: none;
+}
+.validation.move-down {
+  margin-top: 5px;
+}
+/* POPOVERS */
+.popover {
+  min-width: 250px;
+}
+.popover .popover-title {
+  background-color: #FFFFFF;
+  padding: 15px 15px 5px 15px;
+  border: 0 none;
+  font-weight: bold;
+}
+.popover .popover-content {
+  padding: 5px 15px 15px 15px;
+}
+/* MODALS */
+.modal .modal-backdrop {
+  background: #1e1e1e;
+  opacity: 0.6;
+}
+.modal .modal-dialog .modal-content {
+  background-color: #eeeeee;
+  width: auto;
+}
+.modal .modal-dialog .modal-content .modal-header .close {
+  color: #3f3f3f;
+  opacity: 1;
+}
+.modal .no-backdrop .modal-content {
+  display: none;
+}
+/* SELECTION RADIO */
+.page-selection {
+  display: inline-block;
+  margin: 50px 30px;
+}
+.page-selection input[type='radio'] {
+  display: none;
+}
+.page-selection input[type='radio'] + .round-selection a {
+  min-width: 0;
+  background: none;
+  border: 1px solid #FFFFFF;
+  border-radius: 50%;
+  display: block;
+  height: 60px;
+  margin: -1px;
+  padding: 19px 0;
+  width: 60px;
+}
+.page-selection input[type='radio'] + .round-selection a:link,
+.page-selection input[type='radio'] + .round-selection a:visited {
+  color: #FFFFFF;
+}
+.page-selection input[type='radio'] + .round-selection a:hover,
+.page-selection input[type='radio'] + .round-selection a:focus {
+  background-color: #84A121;
+  border-color: #84A121;
+  text-decoration: none;
+  color: #FFF;
+}
+.page-selection input[type='radio'] + .round-selection a span {
+  padding: 19px 0;
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin: -20px 0 0 -1px;
+}
+.page-selection input[type='radio']:checked + .round-selection a {
+  background-color: #84A121;
+  border-color: #84A121;
+}
+.form-selection {
+  margin: 0 5px;
+}
+.form-selection label {
+  max-width: none;
+}
+.form-selection input[type='radio'],
+.form-selection input[type='checkbox'] {
+  display: none;
+}
+.form-selection input[type='radio'] + .round-selection,
+.form-selection input[type='checkbox'] + .round-selection {
+  border: 1px solid #303030;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  height: 50px;
+  padding: 13px 0;
+  text-align: center;
+  width: 50px;
+}
+.form-selection input[type='radio']:checked + .round-selection,
+.form-selection input[type='checkbox']:checked + .round-selection {
+  color: #FFFFFF;
+}
+.form-selection input[type='radio']:checked + .round-selection.opt-yes,
+.form-selection input[type='checkbox']:checked + .round-selection.opt-yes {
+  background-color: #84A121;
+  border-color: #84A121;
+}
+.form-selection input[type='radio']:checked + .round-selection.opt-no,
+.form-selection input[type='checkbox']:checked + .round-selection.opt-no {
+  background-color: #F96855;
+  border-color: #F96855;
+}
+/* GRAPHS */
+.doughnut-container {
+  display: inline-block;
+  float: none;
+  padding: 30px 0;
+  margin-bottom: 15px;
+  color: #5b5b5b;
+}
+.doughnut-container:link,
+.doughnut-container:visited {
+  color: #5b5b5b;
+}
+.doughnut-container:hover,
+.doughnut-container:focus {
+  background-color: #FFFFFF;
+  color: #5b5b5b;
+}
+.doughnut-inner {
+  margin-top: -65px;
+  margin-bottom: 43px;
+  font-size: 16px;
+}
+/* ICONS */
+.icon-inline {
+  display: inline-table;
+  margin: 10px 15px;
+  padding: 10px;
+  width: 195px;
+  height: 266px;
+}
+.icon-inline:first-child {
+  margin-left: 0;
+}
+.icon-inline:last-child {
+  margin-right: 0;
+}
+.icon-inline:hover {
+  background-color: #FFFFFF;
+}
+.icon-inline:hover .icon-container .icon {
+  background-color: #84A121;
+}
+.icon-inline > div {
+  margin: 0 auto;
+}
+.icon-inline .icon-container {
+  margin-top: 0;
+}
+.icon-container {
+  text-align: center;
+  padding-top: 30px;
+  min-height: 218px;
+}
+.icon-container .icon {
+  height: 120px;
+  width: 120px;
+  display: block;
+  margin: 10px auto;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+}
+.icon-container .icon:hover {
+  background-color: #84A121;
+}
+.icon-container .icon .img {
+  background-position: 50%;
+  display: block;
+  height: 120px;
+  background-repeat: no-repeat;
+  width: 120px;
+  /* ASSET */
+  /* INSURANCE */
+  /* LIABILITY */
+}
+.icon-container .icon .img .selected-item {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #84A020;
+  position: absolute;
+  top: 43px;
+  left: 30px;
+  color: #FFF;
+  padding-top: 12px;
+}
+.icon-container .icon .img.asset-cash {
+  background-image: url('../img/icons/asset/cash/normal.png');
+}
+.icon-container .icon .img.asset-cash:hover {
+  background-image: url('../img/icons/asset/cash/selected.png');
+}
+.icon-container .icon .img.asset-investment-and-shares {
+  background-image: url('../img/icons/asset/investment-and-shares/normal.png');
+}
+.icon-container .icon .img.asset-investment-and-shares:hover {
+  background-image: url('../img/icons/asset/investment-and-shares/selected.png');
+}
+.icon-container .icon .img.asset-other {
+  background-image: url('../img/icons/asset/other/normal.png');
+}
+.icon-container .icon .img.asset-other:hover {
+  background-image: url('../img/icons/asset/other/selected.png');
+}
+.icon-container .icon .img.asset-real-estate {
+  background-image: url('../img/icons/asset/real-estate/normal.png');
+}
+.icon-container .icon .img.asset-real-estate:hover {
+  background-image: url('../img/icons/asset/real-estate/selected.png');
+}
+.icon-container .icon .img.asset-super {
+  background-image: url('../img/icons/asset/super/normal.png');
+}
+.icon-container .icon .img.asset-super:hover {
+  background-image: url('../img/icons/asset/super/selected.png');
+}
+.icon-container .icon .img.asset-vehicle-and-luxury {
+  background-image: url('../img/icons/asset/vehicle-and-luxury/normal.png');
+}
+.icon-container .icon .img.asset-vehicle-and-luxury:hover {
+  background-image: url('../img/icons/asset/vehicle-and-luxury/selected.png');
+}
+.icon-container .icon .img.insurance-caravan-and-trailer {
+  background-image: url('../img/icons/insurance/caravan-and-trailer/normal.png');
+}
+.icon-container .icon .img.insurance-caravan-and-trailer:hover {
+  background-image: url('../img/icons/insurance/caravan-and-trailer/selected.png');
+}
+.icon-container .icon .img.insurance-disablement {
+  background-image: url('../img/icons/insurance/disablement/normal.png');
+}
+.icon-container .icon .img.insurance-disablement:hover {
+  background-image: url('../img/icons/insurance/disablement/selected.png');
+}
+.icon-container .icon .img.insurance-home-and-contents {
+  background-image: url('../img/icons/insurance/home-and-contents/normal.png');
+}
+.icon-container .icon .img.insurance-home-and-contents:hover {
+  background-image: url('../img/icons/insurance/home-and-contents/selected.png');
+}
+.icon-container .icon .img.insurance-income-protection {
+  background-image: url('../img/icons/insurance/income-protection/normal.png');
+}
+.icon-container .icon .img.insurance-income-protection:hover {
+  background-image: url('../img/icons/insurance/income-protection/selected.png');
+}
+.icon-container .icon .img.insurance-landlord {
+  background-image: url('../img/icons/insurance/landlord/normal.png');
+}
+.icon-container .icon .img.insurance-landlord:hover {
+  background-image: url('../img/icons/insurance/landlord/selected.png');
+}
+.icon-container .icon .img.insurance-life {
+  background-image: url('../img/icons/insurance/life/normal.png');
+}
+.icon-container .icon .img.insurance-life:hover {
+  background-image: url('../img/icons/insurance/life/selected.png');
+}
+.icon-container .icon .img.insurance-marine {
+  background-image: url('../img/icons/insurance/marine/normal.png');
+}
+.icon-container .icon .img.insurance-marine:hover {
+  background-image: url('../img/icons/insurance/marine/selected.png');
+}
+.icon-container .icon .img.insurance-motor {
+  background-image: url('../img/icons/insurance/motor/normal.png');
+}
+.icon-container .icon .img.insurance-motor:hover {
+  background-image: url('../img/icons/insurance/motor/selected.png');
+}
+.icon-container .icon .img.insurance-trauma {
+  background-image: url('../img/icons/insurance/trauma/normal.png');
+}
+.icon-container .icon .img.insurance-trauma:hover {
+  background-image: url('../img/icons/insurance/trauma/selected.png');
+}
+.icon-container .icon .img.insurance-view-more {
+  background-image: url('../img/icons/insurance/view-more/normal.png');
+}
+.icon-container .icon .img.insurance-view-more:hover {
+  background-image: url('../img/icons/insurance/view-more/selected.png');
+}
+.icon-container .icon .img.liability-business-loan {
+  background-image: url('../img/icons/liability/business-loan/normal.png');
+}
+.icon-container .icon .img.liability-business-loan:hover {
+  background-image: url('../img/icons/liability/business-loan/selected.png');
+}
+.icon-container .icon .img.liability-car-loan {
+  background-image: url('../img/icons/liability/car-loan/normal.png');
+}
+.icon-container .icon .img.liability-car-loan:hover {
+  background-image: url('../img/icons/liability/car-loan/selected.png');
+}
+.icon-container .icon .img.liability-credit-card {
+  background-image: url('../img/icons/liability/credit-card/normal.png');
+}
+.icon-container .icon .img.liability-credit-card:hover {
+  background-image: url('../img/icons/liability/credit-card/selected.png');
+}
+.icon-container .icon .img.liability-home-loan {
+  background-image: url('../img/icons/liability/home-loan/normal.png');
+}
+.icon-container .icon .img.liability-home-loan:hover {
+  background-image: url('../img/icons/liability/home-loan/selected.png');
+}
+.icon-container .icon .img.liability-investment-home-loan {
+  background-image: url('../img/icons/liability/investment-home-loan/normal.png');
+}
+.icon-container .icon .img.liability-investment-home-loan:hover {
+  background-image: url('../img/icons/liability/investment-home-loan/selected.png');
+}
+.icon-container .icon .img.liability-line-of-credit {
+  background-image: url('../img/icons/liability/line-of-credit/normal.png');
+}
+.icon-container .icon .img.liability-line-of-credit:hover {
+  background-image: url('../img/icons/liability/line-of-credit/selected.png');
+}
+.icon-container .icon .img.liability-margin-loan {
+  background-image: url('../img/icons/liability/margin-loan/normal.png');
+}
+.icon-container .icon .img.liability-margin-loan:hover {
+  background-image: url('../img/icons/liability/margin-loan/selected.png');
+}
+.icon-container .icon .img.liability-other {
+  background-image: url('../img/icons/liability/other/normal.png');
+}
+.icon-container .icon .img.liability-other:hover {
+  background-image: url('../img/icons/liability/other/selected.png');
+}
+.icon-container .icon .img.liability-personal {
+  background-image: url('../img/icons/liability/personal/normal.png');
+}
+.icon-container .icon .img.liability-personal:hover {
+  background-image: url('../img/icons/liability/personal/selected.png');
+}
+.icon-container .icon .img.liability-view-more {
+  background-image: url('../img/icons/liability/view-more/normal.png');
+}
+.icon-container .icon .img.liability-view-more:hover {
+  background-image: url('../img/icons/liability/view-more/selected.png');
+}
+.icon-linked {
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  /*margin: 10px auto;*/
+}
+.icon-linked.asset:hover {
+  background-color: #006000;
+}
+.icon-linked.liability:hover {
+  background-color: #ff4618;
+}
+.icon-linked.insurance:hover {
+  background-color: #ffc00c;
+}
+.icon-linked .img {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  display: block;
+  height: 32px;
+  width: 32px;
+  /* ASSET */
+  /* INSURANCE */
+  /* LIABILITY */
+}
+.icon-linked .img.asset-bank {
+  background-image: url('../img/icons/asset/bank/linked/normal.png');
+}
+.icon-linked .img.asset-bank:hover {
+  background-image: url('../img/icons/asset/bank/linked/selected.png');
+}
+.icon-linked .img.asset-cash {
+  background-image: url('../img/icons/asset/cash/linked/normal.png');
+}
+.icon-linked .img.asset-cash:hover {
+  background-image: url('../img/icons/asset/cash/linked/selected.png');
+}
+.icon-linked .img.asset-investment-and-shares {
+  background-image: url('../img/icons/asset/investment-and-shares/linked/normal.png');
+}
+.icon-linked .img.asset-investment-and-shares:hover {
+  background-image: url('../img/icons/asset/investment-and-shares/linked/selected.png');
+}
+.icon-linked .img.asset-other {
+  background-image: url('../img/icons/asset/other/linked/normal.png');
+}
+.icon-linked .img.asset-other:hover {
+  background-image: url('../img/icons/asset/other/linked/selected.png');
+}
+.icon-linked .img.asset-real-estate {
+  background-image: url('../img/icons/asset/real-estate/linked/normal.png');
+}
+.icon-linked .img.asset-real-estate:hover {
+  background-image: url('../img/icons/asset/real-estate/linked/selected.png');
+}
+.icon-linked .img.asset-super {
+  background-image: url('../img/icons/asset/super/linked/normal.png');
+}
+.icon-linked .img.asset-super:hover {
+  background-image: url('../img/icons/asset/super/linked/selected.png');
+}
+.icon-linked .img.asset-vehicle-and-luxury {
+  background-image: url('../img/icons/asset/vehicle-and-luxury/linked/normal.png');
+}
+.icon-linked .img.asset-vehicle-and-luxury:hover {
+  background-image: url('../img/icons/asset/vehicle-and-luxury/linked/selected.png');
+}
+.icon-linked .img.insurance-caravan-and-trailer {
+  background-image: url('../img/icons/insurance/caravan-and-trailer/linked/normal.png');
+}
+.icon-linked .img.insurance-caravan-and-trailer:hover {
+  background-image: url('../img/icons/insurance/caravan-and-trailer/linked/selected.png');
+}
+.icon-linked .img.insurance-disablement {
+  background-image: url('../img/icons/insurance/disablement/linked/normal.png');
+}
+.icon-linked .img.insurance-disablement:hover {
+  background-image: url('../img/icons/insurance/disablement/linked/selected.png');
+}
+.icon-linked .img.insurance-home-and-contents {
+  background-image: url('../img/icons/insurance/home-and-contents/linked/normal.png');
+}
+.icon-linked .img.insurance-home-and-contents:hover {
+  background-image: url('../img/icons/insurance/home-and-contents/linked/selected.png');
+}
+.icon-linked .img.insurance-income-protection {
+  background-image: url('../img/icons/insurance/income-protection/linked/normal.png');
+}
+.icon-linked .img.insurance-income-protection:hover {
+  background-image: url('../img/icons/insurance/income-protection/linked/selected.png');
+}
+.icon-linked .img.insurance-landlord {
+  background-image: url('../img/icons/insurance/landlord/linked/normal.png');
+}
+.icon-linked .img.insurance-landlord:hover {
+  background-image: url('../img/icons/insurance/landlord/linked/selected.png');
+}
+.icon-linked .img.insurance-life {
+  background-image: url('../img/icons/insurance/life/linked/normal.png');
+}
+.icon-linked .img.insurance-life:hover {
+  background-image: url('../img/icons/insurance/life/linked/selected.png');
+}
+.icon-linked .img.insurance-marine {
+  background-image: url('../img/icons/insurance/marine/linked/normal.png');
+}
+.icon-linked .img.insurance-marine:hover {
+  background-image: url('../img/icons/insurance/marine/linked/selected.png');
+}
+.icon-linked .img.insurance-motor {
+  background-image: url('../img/icons/insurance/motor/linked/normal.png');
+}
+.icon-linked .img.insurance-motor:hover {
+  background-image: url('../img/icons/insurance/motor/linked/selected.png');
+}
+.icon-linked .img.insurance-trauma {
+  background-image: url('../img/icons/insurance/trauma/linked/normal.png');
+}
+.icon-linked .img.insurance-trauma:hover {
+  background-image: url('../img/icons/insurance/trauma/linked/selected.png');
+}
+.icon-linked .img.liability-bank {
+  background-image: url('../img/icons/liability/bank/linked/normal.png');
+}
+.icon-linked .img.liability-bank:hover {
+  background-image: url('../img/icons/liability/bank/linked/selected.png');
+}
+.icon-linked .img.liability-business-loan {
+  background-image: url('../img/icons/liability/business-loan/linked/normal.png');
+}
+.icon-linked .img.liability-business-loan:hover {
+  background-image: url('../img/icons/liability/business-loan/linked/selected.png');
+}
+.icon-linked .img.liability-car-loan {
+  background-image: url('../img/icons/liability/car-loan/linked/normal.png');
+}
+.icon-linked .img.liability-car-loan:hover {
+  background-image: url('../img/icons/liability/car-loan/linked/selected.png');
+}
+.icon-linked .img.liability-credit-card {
+  background-image: url('../img/icons/liability/credit-card/linked/normal.png');
+}
+.icon-linked .img.liability-credit-card:hover {
+  background-image: url('../img/icons/liability/credit-card/linked/selected.png');
+}
+.icon-linked .img.liability-home-loan {
+  background-image: url('../img/icons/liability/home-loan/linked/normal.png');
+}
+.icon-linked .img.liability-home-loan:hover {
+  background-image: url('../img/icons/liability/home-loan/linked/selected.png');
+}
+.icon-linked .img.liability-investment-home-loan {
+  background-image: url('../img/icons/liability/investment-home-loan/linked/normal.png');
+}
+.icon-linked .img.liability-investment-home-loan:hover {
+  background-image: url('../img/icons/liability/investment-home-loan/linked/selected.png');
+}
+.icon-linked .img.liability-line-of-credit {
+  background-image: url('../img/icons/liability/line-of-credit/linked/normal.png');
+}
+.icon-linked .img.liability-line-of-credit:hover {
+  background-image: url('../img/icons/liability/line-of-credit/linked/selected.png');
+}
+.icon-linked .img.liability-margin-loan {
+  background-image: url('../img/icons/liability/margin-loan/linked/normal.png');
+}
+.icon-linked .img.liability-margin-loan:hover {
+  background-image: url('../img/icons/liability/margin-loan/linked/selected.png');
+}
+.icon-linked .img.liability-other {
+  background-image: url('../img/icons/liability/other/linked/normal.png');
+}
+.icon-linked .img.liability-other:hover {
+  background-image: url('../img/icons/liability/other/linked/selected.png');
+}
+.icon-linked .img.liability-personal {
+  background-image: url('../img/icons/liability/personal/linked/normal.png');
+}
+.icon-linked .img.liability-personal:hover {
+  background-image: url('../img/icons/liability/personal/linked/selected.png');
+}
+/* ITEM LIST */
+.item-list {
+  padding-left: 0;
+  margin: 0 auto;
+  max-width: 520px;
+}
+.item-list li {
+  list-style-type: none;
+  text-align: initial;
+  padding: initial;
+  min-height: initial;
+}
+.item-list li .icon {
+  height: 75px;
+  width: 75px;
+  display: inline-block;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  padding: 0;
+  /*margin-top: 10px;
+            margin-bottom: 10px;
+            margin-right: 20px;*/
+}
+.item-list li .icon:hover {
+  background-color: #84A121;
+}
+.item-list li .icon .img {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 75%;
+  display: block;
+  height: 75px;
+  width: 75px;
+  margin: 0 auto;
+  padding: 6px;
+}
+.item-list li > div div {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20px;
+}
+.item-list li > div div p {
+  margin: 0;
+}
+/* ITEM NUMBERING */
+.item-numbering span {
+  color: #FFFFFF;
+  opacity: 0.4;
+  margin-right: 30px;
+}
+.item-numbering span.active {
+  opacity: 1;
+}
+/* HEADER */
+header .navbar-default {
+  border: 0 none;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+  background-color: #1e1e1e;
+  border-radius: 0;
+}
+header .navbar-default .navbar-header {
+  height: 70px;
+}
+header .navbar-default .navbar-header .logo {
+  height: 100%;
+}
+header .navbar-default .navbar-header .logo img {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+header .navbar-default .navbar-nav > li > a {
+  color: #FFFFFF;
+  font-size: 18px;
+  opacity: 0.5;
+}
+@media (min-width: 768px) {
+  header .navbar-default .navbar-nav > li > a {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+}
+header .navbar-default .navbar-nav > li > a:focus,
+header .navbar-default .navbar-nav > li > a:hover,
+header .navbar-default .navbar-nav > li.active > a,
+header .navbar-default .navbar-nav > li.active > a:focus,
+header .navbar-default .navbar-nav > li.active > a:hover,
+header .navbar-default .navbar-nav > li.open > a,
+header .navbar-default .navbar-nav > li.open > a:focus,
+header .navbar-default .navbar-nav > li.open > a:hover {
+  background: none;
+  color: #FFFFFF;
+  opacity: 1;
+}
+header .navbar-default .navbar-nav > li > .dropdown-menu {
+  margin-top: -15px;
+  margin-left: 15px;
+  min-width: 175%;
+  padding-top: 0;
+  font-size: 16px;
+}
+header .navbar-default .navbar-text > span {
+  color: #FFFFFF;
+  font-size: 13px;
+  opacity: 0.5;
+  font-weight: 500;
+}
+header .navbar-default .navbar-text .btn-group {
+  margin: 3px 0;
+}
+header .navbar-default .btn-default {
+  min-width: 120px;
+}
+header .navbar-subnav {
+  margin-top: -20px;
+}
+header .navbar-subnav .navbar-nav > li > a {
+  color: #FFFFFF;
+  font-size: 15px;
+  opacity: 0.5;
+}
+@media (min-width: 768px) {
+  header .navbar-subnav .navbar-nav > li > a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+header .navbar-subnav .navbar-nav > li > a:focus,
+header .navbar-subnav .navbar-nav > li > a:hover,
+header .navbar-subnav .navbar-nav > li.active > a,
+header .navbar-subnav .navbar-nav > li.active > a:focus,
+header .navbar-subnav .navbar-nav > li.active > a:hover,
+header .navbar-subnav .navbar-nav > li.open > a,
+header .navbar-subnav .navbar-nav > li.open > a:focus,
+header .navbar-subnav .navbar-nav > li.open > a:hover {
+  background: none;
+  color: #FFFFFF;
+  opacity: 1;
+}
+header .navbar-subnav .navbar-nav > li > .dropdown-menu {
+  margin-top: -15px;
+  margin-left: 15px;
+  min-width: 175%;
+  padding-top: 0;
+  font-size: 16px;
+}
+header .navbar-subnav .navbar-nav > li > .dropdown-menu a {
+  cursor: pointer;
+}
+header .navbar-subnav .navbar-text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+header .navbar-subnav .navbar-text > span {
+  color: #FFFFFF;
+  font-size: 13px;
+  opacity: 0.5;
+  font-weight: 500;
+}
+header .navbar-subnav .navbar-text .btn-group {
+  margin: 3px 0;
+}
+header .navbar-subnav .btn-default {
+  min-width: 40px;
+}
+header .btn-default {
+  background: none;
+  border: 1px solid #FFFFFF;
+  border-radius: 0;
+  color: #FFFFFF;
+  font-weight: 500;
+  opacity: 1;
+}
+header .btn-default:hover,
+header .btn-default:focus,
+header .btn-default.active {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  box-shadow: none;
+  color: #000000;
+}
+header .dropdown-menu > li > oauth2 a {
+  display: block;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap;
+}
+header .dropdown-menu > li a {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+header .dropdown-menu > li a:focus,
+header .dropdown-menu > li a:hover,
+header .dropdown-menu > li.active a,
+header .dropdown-menu > li.active a:focus,
+header .dropdown-menu > li.active a:hover {
+  background: #eeeeee;
+  color: #3f3f3f;
+}
+header.sub-nav .navbar {
+  margin-bottom: 0;
+}
+header .tour-bar {
+  padding: 15px;
+  background-color: #0081bc;
+  color: #FFFFFF;
+  position: relative;
+  z-index: 200;
+}
+header .tour-bar .primary-action {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 10px;
+}
+header .tour-bar .secondary-action {
+  opacity: 0.5;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 10px;
+}
+header .tour-bar .tour-bar-link {
+  cursor: pointer;
+}
+/* FOOTER */
+footer {
+  color: #FFFFFF;
+  margin-top: 100px;
+}
+footer .row {
+  margin: 10px;
+}
+footer .row .copyright {
+  padding-right: 5px;
+  opacity: 0.5;
+}
+footer .row a.footer-link {
+  color: #FFFFFF;
+  opacity: 0.5;
+  padding: 0 5px;
+}
+footer .row a.footer-link:hover,
+footer .row a.footer-link:focus {
+  text-decoration: none;
+  opacity: 1;
+}
+/* CONTAINERS */
+.container-bg {
+  padding: 20px 20px;
+}
+.container-bg.light {
+  background-color: #f5f5f5;
+}
+.container-bg.dark {
+  background-color: #eeeeee;
+}
+/* PANELS */
+.panel.panel-accountLoginDetails {
+  background: none;
+  border: 0 none;
+  border-radius: 0;
+  box-shadow: none;
+}
+.panel.panel-accountLoginDetails .btn {
+  min-width: 150px;
+}
+.panel.panel-accountLoginDetails .form-group {
+  margin-bottom: 15px;
+}
+/* ACCORDION PANELS */
+.panel-group .panel {
+  background: none;
+  border: 0 none;
+  border-radius: 0;
+  box-shadow: none;
+}
+.panel-group .panel-heading {
+  background-color: #eeeeee;
+  border: 0 none;
+  border-radius: 0;
+  color: #5b5b5b;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 20px 15px;
+}
+.panel-group .panel-heading + .panel-collapse > .panel-body {
+  border: 0 none;
+}
+.panel-group .panel-body {
+  padding: 20px 20px 40px;
+}
+/* LIST GROUPS */
+.list-group .list-group-item {
+  background: none;
+  border-radius: 0;
+  border: 0 none;
+  color: #0080BC;
+  cursor: pointer;
+}
+.list-group .list-group-item:hover,
+.list-group .list-group-item.active {
+  background: none;
+  color: #303030;
+}
+.list-group.list-group-category .list-group-item {
+  background-color: #dfdfdf;
+  color: #303030;
+  font-size: 15px;
+}
+.list-group.list-group-category .list-group-item:hover {
+  background-color: #CCCCCC;
+}
+.list-group.list-group-category .list-group-item.active {
+  background-color: #3f3f3f;
+  color: #FFFFFF;
+}
+.list-group.list-group-category .list-group-item.active i.fa {
+  margin-top: 4px;
+}
+.list-group.list-group-selections .list-group-item {
+  color: #303030;
+  cursor: default;
+}
+/* WELCOME TOUR TOOLTIPS */
+#tour_tooltip {
+  font-family: 'Roboto', sans-serif;
+  position: absolute;
+  width: 400px;
+  left: 0;
+  top: 0;
+  background-color: #000000;
+  color: #FFFFFF;
+  z-index: 999;
+  border: 2px solid #FFFFFF;
+  border-radius: 5px;
+  padding: 15px;
+  opacity: 1;
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.6);
+  -moz-box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.6);
+  box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.6);
+}
+#tour_tooltip p,
+#tour_tooltip h2 {
+  padding: 10px 0;
+  margin: 0;
+  text-shadow: none;
+}
+#tour_tooltip p {
+  font-size: 16px;
+}
+#tour_tooltip .tooltip_arrow {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  width: 60px;
+  height: 60px;
+}
+#tour_tooltip .tooltip_arrow.tooltip_arrow_T {
+  top: -65px;
+  left: 50%;
+  margin-left: -3.5px;
+}
+#tour_tooltip .tooltip_arrow.tooltip_arrow_TL {
+  top: -65px;
+  left: 5px;
+}
+#tour_tooltip .tooltip_arrow.tooltip_arrow_TR {
+  top: -65px;
+  right: 5px;
+}
+#tour_tooltip .tooltip_arrow.tooltip_arrow_B {
+  bottom: -65px;
+  left: 50%;
+  margin-left: -3.5px;
+}
+#tour_tooltip .tooltip_arrow.tooltip_arrow_BL {
+  bottom: -65px;
+  left: 5px;
+}
+#tour_tooltip .tooltip_arrow.tooltip_arrow_BR {
+  bottom: -65px;
+  right: 5px;
+}
+#tour_tooltip .tooltip_arrow.tooltip_arrow_L {
+  top: 50%;
+  margin-top: -6.5px;
+  left: -65px;
+}
+#tour_tooltip .tooltip_arrow.tooltip_arrow_LT {
+  top: 5px;
+  left: -65px;
+}
+#tour_tooltip .tooltip_arrow.tooltip_arrow_LB {
+  bottom: 5px;
+  left: -65px;
+}
+#tour_tooltip .tooltip_arrow.tooltip_arrow_R {
+  top: 50%;
+  margin-top: -6.5px;
+  right: -65px;
+}
+#tour_tooltip .tooltip_arrow.tooltip_arrow_RT {
+  top: -5px;
+  right: -65px;
+}
+#tour_tooltip .tooltip_arrow.tooltip_arrow_RB {
+  bottom: 5px;
+  right: -65px;
+}
+#tour_overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background: #000000;
+  z-index: 100;
+  opacity: 0.3;
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=30);
+}
+/* WIDGET UI - DASHBOARD */
+.widget-ui.widget-left {
+  width: 49%;
+  float: left;
+}
+.widget-ui.widget-right {
+  width: 49%;
+  float: right;
+}
+.widget-ui > div {
+  padding: 15px 35px 10px 20px;
+  /*overflow: hidden;*/
+}
+.widget-ui .widget-ui-heading {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.widget-ui .widget-ui-heading h2 {
+  margin: 0;
+}
+.widget-ui .widget-ui-body .data-headings {
+  font-size: 13px;
+  margin: 0 0 10px 0;
+}
+.widget-ui .widget-ui-body .panel-default {
+  border: 0 none;
+  background: none;
+  box-shadow: none;
+}
+.widget-ui .widget-ui-body .panel-heading {
+  border: 0 none;
+  border-radius: 0;
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+.widget-ui .widget-ui-body .panel-heading .panel-title {
+  color: #303030;
+}
+.widget-ui .widget-ui-body .panel-body .data-rows .data-row-heading {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.widget-ui .widget-ui-body .panel-body .data-rows .data-row-heading:first-child {
+  margin-top: 0;
+}
+.widget-ui .widget-ui-footer {
+  margin: 0 0 20px 0;
+}
+.widget-ui-dashboard {
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  -webkit-box-shadow: 0px -5px 15px 0px rgba(50, 50, 50, 0.6);
+  -moz-box-shadow: 0px -5px 15px 0px rgba(50, 50, 50, 0.6);
+  box-shadow: 0px -5px 15px 0px rgba(50, 50, 50, 0.6);
+  margin-bottom: 20px;
+}
+.widget-ui-page > div {
+  border: 0 none !important;
+}
+.widget-ui-page .widget-ui-heading .btn-group {
+  display: none;
+}
+.widget-ui-page .widget-growMyWealth {
+  text-align: center;
+}
+.widget-ui-hideHeading .widget-ui-heading {
+  display: none;
+}
+.widget-whatIOwn {
+  border-left: 25px solid #006000;
+}
+.widget-whatIOwe {
+  border-left: 25px solid #ff4618;
+}
+.widget-myNetWealth {
+  border-left: 25px solid #6954a3;
+}
+.widget-myOtherAccounts {
+  border-left: 25px solid #ff61a6;
+}
+.widget-myInsurance {
+  border-left: 25px solid #ffc00c;
+}
+.widget-growMyWealth {
+  border-left: 25px solid #0081bc;
+}
+/* PAGE UI - MY ACCOUNTS */
+.ui-my-accounts {
+  padding: 20px 0;
+}
+.ui-my-accounts .heading {
+  font-weight: 500;
+}
+.ui-my-accounts .data .row {
+  padding: 0 0 5px;
+}
+.ui-my-accounts .data .institution-heading {
+  border-top: 2px solid #e0e0e0;
+  margin-top: 20px;
+  padding: 10px 0;
+}
+.ui-my-accounts .footer {
+  margin-top: 20px;
+}
+/* PAGE UI - CONTACT US */
+.ui-contact-form {
+  background-color: #eeeeee;
+  padding: 20px 30px;
+}
+.ui-contact-info {
+  margin-top: 50px;
+}
+/* PAGE UI - EDIT ACCOUNTS */
+.ui-edit-account table {
+  width: 100%;
+  margin-bottom: 25px;
+}
+.ui-edit-account table thead tr th {
+  padding: 20px 10px;
+  font-weight: normal;
+}
+.ui-edit-account table thead tr th:nth-child(1) {
+  vertical-align: bottom;
+}
+.ui-edit-account table thead tr th:nth-child(2) {
+  vertical-align: bottom;
+  width: 320px;
+}
+.ui-edit-account table thead tr th:nth-child(3) {
+  text-align: center;
+  vertical-align: top;
+  border-right: 1px solid #FFFFFF;
+  width: 114px;
+}
+.ui-edit-account table thead tr th:nth-child(4) {
+  text-align: center;
+  vertical-align: top;
+  border-right: 1px solid #FFFFFF;
+  width: 114px;
+}
+.ui-edit-account table thead tr th:nth-child(5) {
+  text-align: center;
+  vertical-align: top;
+  border-right: 1px solid #FFFFFF;
+  width: 114px;
+}
+.ui-edit-account table thead tr th:nth-child(6) {
+  text-align: center;
+  vertical-align: top;
+  width: 115px;
+}
+.ui-edit-account table tbody tr td {
+  padding: 10px 10px;
+}
+.ui-edit-account table tbody tr td:nth-child(2) {
+  width: 320px;
+}
+.ui-edit-account table tbody tr td:nth-child(3) {
+  text-align: center;
+  border-right: 1px solid #FFFFFF;
+  width: 114px;
+}
+.ui-edit-account table tbody tr td:nth-child(4) {
+  text-align: center;
+  border-right: 1px solid #FFFFFF;
+  width: 114px;
+}
+.ui-edit-account table tbody tr td:nth-child(5) {
+  text-align: center;
+  border-right: 1px solid #FFFFFF;
+  width: 114px;
+}
+.ui-edit-account table tbody tr td:nth-child(6) {
+  text-align: center;
+  width: 115px;
+}
+.ui-edit-account table tbody tr.institution {
+  background-color: #e0e0e0;
+}
+.ui-edit-account table tbody tr.institution td {
+  padding: 20px 10px;
+  font-weight: 500;
+}
+/* PAGE UI - EDIT ASSETS */
+.ui-edit-assets {
+  margin-top: 50px;
+}
+.ui-edit-assets .modal-display {
+  padding: 20px;
+}
+.ui-edit-assets .modal-display > div > div {
+  margin: 0 auto;
+}
+.ui-edit-assets .modal-display .modal-header {
+  display: none;
+}
+.ui-edit-assets .modal-display .js-show-Add {
+  display: none;
+}
+/* LOADING MODULE */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5000;
+}
+.loading-overlay .message {
+  margin-top: 10%;
+  color: #FFFFFF;
+}

@@ -1,0 +1,82 @@
+﻿<header class="sub-nav">
+    <div ng-controller="NavbarController" ng-include src="'partials/navs/sub_myWealth.html'"></div>
+</header>
+<div class="container-bg light">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <div class="icon-inline" ng-repeat="item in insuranceData.categoryItems">
+                    <div class="icon-container">
+                        <div class="icon">
+                            <span class="img" ng-class="{'insurance-home-and-contents': item.type.id == 16, 'insurance-landlord': item.type.id == 22, 'insurance-disablement': item.type.id == 20, 'insurance-income-protection': item.type.id == 19, 'insurance-life': item.type.id == 18, 'insurance-trauma': item.type.id == 21, 'insurance-motor': item.type.id == 17, 'insurance-caravan-and-trailer': item.type.id == 23, 'insurance-marine': item.type.id == 24 }"></span>
+                        </div>
+                        <p><strong>{{item.type.name}}</strong><br />{{item.total | currency : "$" : 0}} of cover</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-bg dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-center">In More Detail</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-right">
+                <div class="btn-group" role="group">
+                    <a class="btn btn-default" data-toggle="collapse" data-target=".js-widget-collapse"><i class="fa fa-caret-up"></i></a>
+                    <a class="btn btn-default" data-toggle="collapse" data-target=".js-widget-collapse"><i class="fa fa-caret-down"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="widget-ui widget-ui-page widget-ui-hideHeading" ng-controller="widgetDashboard_myInsurance" ng-include src="'partials/widgets/dashboard_myInsurance.html'"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-bg light">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="text-center">Assets that don't yet have insurance?</h2>
+            </div>
+            <div class="col-sm-12">
+                <ul class="item-list">
+                    <li class="icon-container row" ng-repeat="item in uninsuredAssets">
+                        <div ng-if="item.categoryType.id == 2">
+                            <div class="col-xs-4 icon"><span class="img asset-real-estate"></span></div>
+                            <div class="col-xs-8">
+                                <p>{{item.description}}: {{item.realEstate.estimatedValue|currency}}</p>
+                                <a ng-if="item.realEstate.propertyType.id == 5" ng-click="addInsurance('insurance_homeContents')">Add insurance details</a>
+                                <a ng-if="item.realEstate.propertyType.id != 5" ng-click="addInsurance('insurance_landlord')">Add insurance details</a>
+                            </div>
+                        </div>
+                        <div ng-if="item.categoryType.id == 5">
+                            <div class="col-xs-4 icon"><span class="img asset-vehicle-and-luxury"></span></div>
+                            <div class="col-xs-8">
+                                <p>{{item.description}}: {{item.luxuryItem.estimatedValue|currency}}</p>
+                                <a ng-if="item.luxuryItem.type.id == 17 || item.luxuryItem.type.id == 19 || item.luxuryItem.type.id == 20 || item.luxuryItem.type.id == 23" ng-click="addInsurance('insurance_motor')">Add insurance details</a>
+                                <a ng-if="item.luxuryItem.type.id == 18" ng-click="addInsurance('insurance_caravan')">Add insurance details</a>
+                                <a ng-if="item.luxuryItem.type.id == 21 || item.luxuryItem.type.id == 22" ng-click="addInsurance('insurance_marine')">Add insurance details</a>
+                                <a ng-if="item.luxuryItem.type.id == 24" ng-click="addInsurance('insurance_select')">Add insurance details</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--<div class="container-bg dark">
+    <div class="container">
+        <div class="widget-ui widget-ui-page" ng-controller="widgetDashboard_growMyWealth" ng-include src="'partials/widgets/dashboard_growMyWealth.html'"></div>
+    </div>
+</div>-->

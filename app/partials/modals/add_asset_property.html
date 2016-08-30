@@ -1,0 +1,140 @@
+﻿<div style="width: 630px;">
+    <div class="modal-header">
+        <button type="button" class="btn btn-default pull-left" ng-click="closeModal()">BACK</button>
+        <button type="button" class="close" ng-click="closeModal()"><i class="fa fa-times"></i></button>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h4 class="modal-title">Add a Property</h4>
+                <p class="text-center">Add the details of your property and any associated loans, to have this included in your net wealth</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Property Type</label>
+                <div class="col-sm-8 col-xs-12">
+                    <select class="form-control custom-select" ng-options="opt.name for opt in types.propertyTypes track by opt.id" ng-model="assetItem.realEstate.propertyType" name="assetItem-realEstate-propertyType" validation="required" ng-change="resetAddObjects()">
+                        <option value="">Please select...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Property Address</label>
+                <div class="col-sm-8 col-xs-12">
+                    <address-search model="assetItem.realEstate.address" ng-model="assetItem.realEstate.address" name="assetItem-realEstate-address" validation="required"></address-search>
+                    <input type="hidden" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Value of asset</label>
+                <div class="col-sm-8 col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="text" class="form-control" placeholder="Estimated Property Value" ng-model="assetItem.realEstate.estimatedValue" name="assetItem-realEstate-estimatedValue" validation="numeric:alt=Please enter a dollar amount as numbers only e.g. 450000.00|required" validation-error-to="assetItem-realEstate-estimatedValue" />
+                    </div>
+                    <div class="validation text-danger" id="assetItem-realEstate-estimatedValue"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 col-xs-12 col-sm-offset-4 control-label">Ownership split</label>
+                <div class="col-sm-3 col-xs-10">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="assetItem.realEstate.ownershipSplit" name="assetItem-realEstate-ownershipSplit" validation="required|min:0|max:100" validation-error-to="assetItem-realEstate-ownershipSplit" />
+                        <span class="input-group-addon">%</span>
+                    </div>
+                    <div class="validation text-danger" id="assetItem-realEstate-ownershipSplit"></div>
+                </div>
+                <div class="col-sm-2 col-xs-1">
+                    <button class="btn btn-default" data-toggle="popover" data-placement="top" data-title="Ownership Split" data-trigger="popover" data-content="How much percentage you own of the property?">?</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Is one of these loans for this asset?</label>
+                <div class="col-sm-6 col-xs-8">
+                    <select multiple class="form-control" ng-model="assetItem.liabilities" ng-disabled="noLinkedLiability">
+                        <option ng-repeat="opt in liabilities" value="{{opt.id}}" ng-if="opt.categoryType.id == filterlist.assetProperty[0] || opt.categoryType.id == filterlist.assetProperty[1]">{{opt.description}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-2 col-xs-4">
+                    <div class="form-selection">
+                        <label>
+                            <input type="checkbox" ng-model="noLinkedLiability" ng-change="addLiability.homeLoan=false;" />
+                            <span class="round-selection opt-no">NO</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" ng-show="noLinkedLiability">
+                <label class="col-sm-4 col-xs-12 col-sm-offset-4 control-label">Add a home loan to my list of liabilities?</label>
+                <div class="col-sm-4 col-xs-12" ng-if="assetItem.realEstate.propertyType.id == 5">
+                    <label class="form-selection">
+                        <input type="radio" ng-model="addLiability.homeLoan" name="addLiability-homeLoan" data-ng-value="true" validation="required" validation-error-to="addLiability-homeLoan" ng-disabled="!noLinkedLiability" />
+                        <span class="round-selection opt-yes">YES</span>
+                    </label>
+                    <label class="form-selection">
+                        <input type="radio" ng-model="addLiability.homeLoan" name="addLiability-homeLoan" data-ng-value="false" validation="required" validation-error-to="addLiability-homeLoan" ng-disabled="!noLinkedLiability" />
+                        <span class="round-selection opt-no">NO</span>
+                    </label>
+                    <div class="validation move-down text-danger" id="addLiability-homeLoan"></div>
+                </div>
+                <div class="col-sm-4 col-xs-12" ng-if="assetItem.realEstate.propertyType.id != 5">
+                    <label class="form-selection">
+                        <input type="radio" ng-model="addLiability.investmentHomeLoan" name="addLiability-investmentHomeLoan" data-ng-value="true" validation="required" validation-error-to="addLiability-investmentHomeLoan" ng-disabled="!noLinkedLiability" />
+                        <span class="round-selection opt-yes">YES</span>
+                    </label>
+                    <label class="form-selection">
+                        <input type="radio" ng-model="addLiability.investmentHomeLoan" name="addLiability-investmentHomeLoan" data-ng-value="false" validation="required" validation-error-to="addLiability-investmentHomeLoan" ng-disabled="!noLinkedLiability" />
+                        <span class="round-selection opt-no">NO</span>
+                    </label>
+                    <div class="validation move-down text-danger" id="addLiability-investmentHomeLoan"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Is this asset insured?</label>
+                <div class="col-sm-8 col-xs-12" ng-if="assetItem.realEstate.propertyType.id == 5">
+                    <label class="form-selection">
+                        <input type="radio" ng-model="addInsurance.homeContents" name="addInsurance-homeContents" data-ng-value="true" validation="required" validation-error-to="addInsurance-homeContents" />
+                        <span class="round-selection opt-yes">YES</span>
+                    </label>
+                    <label class="form-selection">
+                        <input type="radio" ng-model="addInsurance.homeContents" name="addInsurance-homeContents" data-ng-value="false" validation="required" validation-error-to="addInsurance-homeContents" />
+                        <span class="round-selection opt-no">NO</span>
+                    </label>
+                    <div class="validation move-down text-danger" id="addInsurance-homeContents"></div>
+                    <button class="btn btn-default" data-toggle="popover" data-placement="right" data-title="Add Insurance Details" data-trigger="popover" data-content="Do you have insurance for this asset?">?</button>
+                </div>
+                <div class="col-sm-8 col-xs-12" ng-if="assetItem.realEstate.propertyType.id != 5">
+                    <label class="form-selection">
+                        <input type="radio" ng-model="addInsurance.landlord" name="addInsurance-landlord" data-ng-value="true" validation="required" validation-error-to="addInsurance-landlord" />
+                        <span class="round-selection opt-yes">YES</span>
+                    </label>
+                    <label class="form-selection">
+                        <input type="radio" ng-model="addInsurance.landlord" name="addInsurance-landlord" data-ng-value="false" validation="required" validation-error-to="addInsurance-landlord" />
+                        <span class="round-selection opt-no">NO</span>
+                    </label>
+                    <div class="validation move-down text-danger" id="addInsurance-landlord"></div>
+                    <button class="btn btn-default" data-toggle="popover" data-placement="right" data-title="Add Insurance Details" data-trigger="popover" data-content="Do you have insurance for this asset?">?</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-8 col-xs-12 col-sm-offset-4">
+                    <div class="checkbox">
+                        <input id="option" type="checkbox" value="true" ng-model="assetItem.deferAdd">
+                        <label for="option"><span><span></span></span> Add next time I sign in</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-sm-12">
+                <button class="btn btn-primary" ng-show="isAdd" ng-click="saveAsset('property')">SAVE</button>
+                <button class="btn btn-primary" ng-show="!isAdd" ng-click="updateItem()">UPDATE</button>
+                <button class="btn btn-default" ng-show="!isAdd" ng-click="removeItem()">DELETE</button>
+            </div>
+        </div>
+    </div>
+</div>

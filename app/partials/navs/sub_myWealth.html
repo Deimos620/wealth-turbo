@@ -1,0 +1,11 @@
+﻿<nav class="navbar navbar-subnav">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li ng-class="{ active: isActiveNav($state,'my-wealth.my-net-wealth') }"><a ui-sref="my-wealth.my-net-wealth">My Net Wealth</a></li>
+            <li ng-class="{ active: isActiveNav($state,'my-wealth.what-i-own') }"><a ui-sref="my-wealth.what-i-own">What I Own</a></li>
+            <li ng-class="{ active: isActiveNav($state,'my-wealth.what-i-owe') }"><a ui-sref="my-wealth.what-i-owe">What I Owe</a></li>
+            <li ng-class="{ active: isActiveNav($state,'my-wealth.my-insurance') }"><a ui-sref="my-wealth.my-insurance">My Insurance</a></li>
+        </ul>
+        <div ng-include src="'partials/navs/sub_right.html'"></div>
+    </div>
+</nav>

@@ -1,0 +1,32 @@
+<header class="sub-nav">
+    <div ng-controller="NavbarController" ng-include src="'partials/navs/sub_profile.html'"></div>
+</header>
+<div class="container-bg light">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1>My login details</h1>
+            </div>
+        </div>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="checkbox">
+                    <input id="profileData-automaticRefresh" type="checkbox" value="true" ng-model="profileData.automaticRefresh">
+                    <label for="profileData-automaticRefresh"><span><span></span></span> Automatically refresh my balances</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <input id="profileData-defaultView2Column" type="checkbox" value="true" ng-model="profileData.defaultView2Column">
+                    <label for="profileData-defaultView2Column"><span><span></span></span> Make the default view of the dashboard 2 columns</label>
+                </div>
+            </div>
+        </div>
+        <!--SAVE BUTTON-->
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-primary" ng-click="updateProfile()">UPDATE</button>
+            </div>
+        </div>
+    </div>
+</div>

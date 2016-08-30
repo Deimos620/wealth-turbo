@@ -1,0 +1,34 @@
+﻿<header class="sub-nav">
+    <div ng-controller="NavbarController" ng-include src="'partials/navs/sub_addedit.html'"></div>
+</header>
+<div class="container-bg dark">
+    <div class="container">
+        <h1 class="text-center">Edit my assets</h1>
+        <p class="text-center dev-missing-bg">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+            erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+            consequat. Duis autem vel eum
+        </p>
+
+        <div class="ui-edit-assets">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="list-group">
+                        <div class="list-group-item" ng-class="{ active: $index == $parent.currentIndex }" ng-repeat="item in items">
+                            <div ng-click="openItem($index, item.categoryType.id)">{{item.id}} - {{item.description}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 bg-gray modal-display">
+                    <asset-cash     ng-if="typeID == 1"></asset-cash>
+                    <asset-property ng-if="typeID == 2"></asset-property>
+                    <asset-shares   ng-if="typeID == 3"></asset-shares>
+                    <asset-super    ng-if="typeID == 4"></asset-super>
+                    <asset-vehicle  ng-if="typeID == 5"></asset-vehicle>
+                    <asset-other    ng-if="typeID == 6"></asset-other>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

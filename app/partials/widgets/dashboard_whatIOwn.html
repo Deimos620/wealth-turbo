@@ -1,0 +1,65 @@
+﻿<!-- WIDGET: What I Own -->
+<div class="widget-whatIOwn">
+    <div>
+        <div class="row widget-ui-heading">
+            <div class="col-xs-9"><h2>What I Own</h2></div>
+            <div class="col-xs-3 text-right">
+                <div class="btn-group" role="group">
+                    <a class="btn btn-default" data-toggle="collapse" data-target=".js-widget-whatIOwn-collapse"><i class="fa fa-caret-up"></i></a>
+                    <a class="btn btn-default" data-toggle="collapse" data-target=".js-widget-whatIOwn-collapse"><i class="fa fa-caret-down"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="widget-ui-body">
+            <div class="row data-headings">
+                <div ng-class="{'col-sm-8': userPref.defaultView2Column, 'col-sm-4': !userPref.defaultView2Column}">Type</div>
+                <div ng-class="{'hidden': userPref.defaultView2Column, 'col-sm-3': !userPref.defaultView2Column}">Account</div>
+                <div ng-class="{'hidden': userPref.defaultView2Column, 'col-sm-3': !userPref.defaultView2Column}">Linked To</div>
+                <div ng-class="{'col-sm-4': userPref.defaultView2Column, 'col-sm-2': !userPref.defaultView2Column}" class="text-right">Balance</div>
+            </div>
+            <div class="panel panel-default" ng-repeat="item in assetData.categoryItems">
+                <div class="panel-heading" data-toggle="collapse" data-target="#{{divname[item.type.name]}}"  ng-click="toggle(divname[item.type.name])" role="tab">
+                    <div class="row">
+                        <div class="col-sm-8 text-left">
+                            <h4 class="panel-title">
+                                <i class="fa fa-caret-down" id="{{divname[item.type.name]}}-id"></i>
+                                <span>{{item.type.name}}</span> (<span>{{item.percentage}}%</span>)
+                            </h4>
+                        </div>
+                        <div class="col-sm-4 text-right">
+                            <h4 class="panel-title">
+                                <span>{{item.total | currency}}</span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div id="{{divname[item.type.name]}}" class="collapse in">
+                <div class="panel-collapse collapse in js-widget-whatIOwn-collapse js-widget-collapse" role="tabpanel" ng-repeat="entity in item.entities">
+                    <div class="panel-body">
+                        <div class="data-rows">
+                            <div class="row data-row-heading" ng-if="entity.institution.id != null">
+                                <div class="col-sm-6"><a href="#">{{entity.institution.name}}</a></div>
+                                <div class="col-sm-6 text-right"><i class="fa fa-spinner"></i></div>
+                            </div>
+                            <div class="row" ng-repeat="account in entity.accounts">
+                                <div ng-class="{'col-sm-8': userPref.defaultView2Column, 'col-sm-4': !userPref.defaultView2Column}">{{account.description}}</div>
+                                <div ng-class="{'hidden': userPref.defaultView2Column, 'col-sm-3': !userPref.defaultView2Column}">{{account.accountNumber}}</div>
+                                <div ng-class="{'hidden': userPref.defaultView2Column, 'col-sm-3': !userPref.defaultView2Column}">
+                                    <div ng-include src="'partials/widgets/linkedItemIcons.html'"></div>
+                                </div>
+                                <div ng-class="{'col-sm-4': userPref.defaultView2Column, 'col-sm-2': !userPref.defaultView2Column}" class="text-right">{{account.balance | currency}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="row widget-ui-footer">
+            <div class="col-sm-6">
+                <a class="btn btn-default" ng-click="openAddModal('asset')"><i class="fa fa-plus"></i></a> Add what I own here
+            </div>
+            <div class="col-sm-6 text-right"><span class="lg-text">{{assetData.total | currency}}</span></div>
+        </div>
+    </div>
+</div>

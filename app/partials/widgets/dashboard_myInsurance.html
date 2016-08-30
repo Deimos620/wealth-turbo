@@ -1,0 +1,93 @@
+﻿<!-- WIDGET: My Insurance -->
+<div class="widget-myInsurance">
+    <div>
+        <div class="row widget-ui-heading">
+            <div class="col-xs-9"><h2>My Insurance</h2></div>
+            <div class="col-xs-3 text-right">
+                <div class="btn-group" role="group">
+                    <a class="btn btn-default" data-toggle="collapse" data-target=".js-widget-myInsurance-collapse"><i class="fa fa-caret-up"></i></a>
+                    <a class="btn btn-default" data-toggle="collapse" data-target=".js-widget-myInsurance-collapse"><i class="fa fa-caret-down"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="widget-ui-body">
+            <div class="row data-headings">
+                <div ng-class="{'col-sm-8': userPref.defaultView2Column, 'col-sm-4': !userPref.defaultView2Column}">Type</div>
+                <div ng-class="{'hidden': userPref.defaultView2Column, 'col-sm-2': !userPref.defaultView2Column}">Provider</div>
+                <div ng-class="{'hidden': userPref.defaultView2Column, 'col-sm-2': !userPref.defaultView2Column}">Expiry Date</div>
+                <div ng-class="{'hidden': userPref.defaultView2Column, 'col-sm-2': !userPref.defaultView2Column}">Linked To</div>
+                <div ng-class="{'col-sm-4': userPref.defaultView2Column, 'col-sm-2': !userPref.defaultView2Column}" class="text-right">Amount of Cover</div>
+            </div>
+            <div class="panel panel-default" ng-repeat="item in insuranceData.categoryItems">
+                <div class="panel-heading" role="tab" data-target="#{{divname[item.type.name]}}" data-toggle="collapse" ng-click="toggle(divname[item.type.name])">
+                    <div class="row">
+                        <div class="col-sm-8 text-left">
+                            <h4 class="panel-title">
+                                <i class="fa fa-caret-down" id="{{divname[item.type.name]}}-id"></i>
+                                <span>{{item.type.name}}</span> (<span>{{item.percentage}}</span>)
+                            </h4>
+                        </div>
+                        <div class="col-sm-4 text-right">
+                            <h4 class="panel-title">
+                                <span>{{item.total | currency}}</span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div id="{{divname[item.type.name]}}" class="collapse in">
+                <div class="panel-collapse collapse in js-widget-myInsurance-collapse js-widget-collapse" role="tabpanel" ng-repeat="entity in item.entities">
+                    <div class="panel-body">
+                        <div class="data-rows">
+                            <div class="row" ng-repeat="account in entity.accounts">
+                                <div ng-if="account.categoryType.id == 16" ng-class="{'col-sm-8': userPref.defaultView2Column, 'col-sm-4': !userPref.defaultView2Column}">
+                                    Property Address: {{account.description}}<br />
+                                    Building Sum Insured: {{account.buildingAmount | currency}}<br />
+                                    Contents Sum Insured: {{account.contentsAmount | currency}}<br />
+                                    {{account.frequency.name}} Premium: {{account.premium | currency}}
+                                </div>
+                                <div ng-if="account.categoryType.id == 17" ng-class="{'col-sm-8': userPref.defaultView2Column, 'col-sm-4': !userPref.defaultView2Column}">
+                                    Type of Vehicle: {{account.description}}<br />
+                                    Cover Type: {{account.cover.name}}<br />
+                                    {{account.frequency.name}} Premium: {{account.premium | currency}}
+                                </div>
+                                <div ng-if="account.categoryType.id == 18" ng-class="{'col-sm-8': userPref.defaultView2Column, 'col-sm-4': !userPref.defaultView2Column}">
+                                    {{account.frequency.name}} Premium: {{account.premium | currency}}
+                                </div>
+                                <div ng-if="account.categoryType.id == 19" ng-class="{'col-sm-8': userPref.defaultView2Column, 'col-sm-4': !userPref.defaultView2Column}">
+                                    {{account.frequency.name}} Premium: {{account.premium | currency}}
+                                </div>
+                                <div ng-if="account.categoryType.id == 20" ng-class="{'col-sm-8': userPref.defaultView2Column, 'col-sm-4': !userPref.defaultView2Column}">
+                                    {{account.frequency.name}} Premium: {{account.premium | currency}}
+                                </div>
+                                <div ng-if="account.categoryType.id == 21" ng-class="{'col-sm-8': userPref.defaultView2Column, 'col-sm-4': !userPref.defaultView2Column}">
+                                    {{account.frequency.name}} Premium: {{account.premium | currency}}
+                                </div>
+                                <div ng-if="account.categoryType.id == 22" ng-class="{'col-sm-8': userPref.defaultView2Column, 'col-sm-4': !userPref.defaultView2Column}">
+                                    {{account.frequency.name}} Premium: {{account.premium | currency}}
+                                </div>
+                                <div ng-if="account.categoryType.id == 23" ng-class="{'col-sm-8': userPref.defaultView2Column, 'col-sm-4': !userPref.defaultView2Column}">
+                                    {{account.frequency.name}} Premium: {{account.premium | currency}}
+                                </div>
+                                <div ng-if="account.categoryType.id == 24" ng-class="{'col-sm-8': userPref.defaultView2Column, 'col-sm-4': !userPref.defaultView2Column}">
+                                    {{account.frequency.name}} Premium: {{account.premium | currency}}
+                                </div>
+                                <div ng-class="{'hidden': userPref.defaultView2Column, 'col-sm-2': !userPref.defaultView2Column}">{{account.provider.name}}</div>
+                                <div ng-class="{'hidden': userPref.defaultView2Column, 'col-sm-2': !userPref.defaultView2Column}">{{account.expiry | date: 'd MMM yyyy'}} <!-- 12 Dec 16 --></div>
+                                <div ng-class="{'hidden': userPref.defaultView2Column, 'col-sm-2': !userPref.defaultView2Column}">
+                                    <div ng-include src="'partials/widgets/linkedItemIcons.html'"></div>
+                                </div>
+                                <div ng-class="{'col-sm-4': userPref.defaultView2Column, 'col-sm-2': !userPref.defaultView2Column}" class="text-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="row widget-ui-footer">
+            <div class="col-sm-12">
+                <a class="btn btn-default" ng-click="openAddModal('insurance')"><i class="fa fa-plus"></i></a> Add insurance here
+            </div>
+        </div>
+    </div>
+</div>

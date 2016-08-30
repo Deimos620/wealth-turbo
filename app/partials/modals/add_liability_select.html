@@ -1,0 +1,137 @@
+﻿<div style="max-width: 550px;">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="closeModal()"><i class="fa fa-times"></i></button>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h4 class="modal-title">Add a liability</h4>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-4 col-xs-6">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a  ng-click="openFormModal('liability_creditCard')">
+                            <span id="sp" class="img liability-credit-card">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'liability_creditCard'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Credit Card</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a  ng-click="openFormModal('liability_homeLoan')">
+                            <span class="img liability-home-loan">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'liability_homeLoan'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Home Loan</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a  ng-click="openFormModal('liability_investmentHomeLoan')">
+                            <span class="img liability-investment-home-loan">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'liability_investmentHomeLoan'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Investment Home Loan</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a  ng-click="openFormModal('liability_personalLoan')">
+                            <span class="img liability-personal">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'liability_personalLoan'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Personal Loan</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a  ng-click="openFormModal('liability_carLoan')">
+                            <span class="img liability-car-loan">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'liability_carLoan'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Car Loan</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6" ng-hide="displayOthers">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="showOthers()">
+                            <span class="img liability-view-more"></span>
+                        </a>
+                    </div>
+                    <p>View More</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6" ng-show="displayOthers">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a  ng-click="openFormModal('liability_businessLoan')">
+                            <span class="img liability-business-loan">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'liability_businessLoan'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Business Loan</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6" ng-show="displayOthers">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a  ng-click="openFormModal('liability_lineOfCredit')">
+                            <span class="img liability-line-of-credit">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'liability_lineOfCredit'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Line of Credit</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6" ng-show="displayOthers">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a  ng-click="openFormModal('liability_marginLoan')">
+                            <span class="img liability-margin-loan">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'liability_marginLoan'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Margin Loan</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6" ng-show="displayOthers">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a  ng-click="openFormModal('liability_other')">
+                            <span class="img liability-other">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'liability_other'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Other</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <a class="dark" ui-sref="add.account">or I can automatically pull in my liability details</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿<!-- WIDGET: My Net Wealth -->
+<div class="widget-myNetWealth">
+    <div>
+        <div class="row widget-ui-heading">
+            <div class="col-xs-9"><h2>My Net Wealth</h2></div>
+            <div class="col-xs-3 text-right">
+                <div class="btn-group" role="group">
+                    <a id="popover-widget-myNetWealth-1" class="btn btn-default" data-toggle="popover" title="Net wealth total" data-content="What you own minus what you owe gives you your net wealth" ng-click="showPopover('popover-widget-myNetWealth-1')">?</a>
+                </div>
+            </div>
+        </div>
+        <div class="widget-ui-body"></div>
+        <div class="row widget-ui-footer">
+            <div class="col-sm-6">
+                <p ng-if="data.wealthPosition.differential >= 0"><i class="fa fa-long-arrow-up text-success"></i> +{{data.wealthPosition.differential | number:2}}% change over {{data.wealthPosition.growthPositionMonths}} months</p>
+                <p ng-if="data.wealthPosition.differential < 0"><i class="fa fa-long-arrow-down text-danger"></i> {{data.wealthPosition.differential | number:2}}% change over {{data.wealthPosition.growthPositionMonths}} months</p>
+            </div>
+            <div class="col-sm-6 text-right"><span class="lg-text">{{data.wealthPosition.currentNetValue | currency}}</span></div>
+        </div>
+    </div>
+</div>

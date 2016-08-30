@@ -1,0 +1,9 @@
+﻿<nav class="navbar navbar-subnav">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li ng-class="{ active: isActiveNav($state,'help-support.contact-us') }"><a ui-sref="help-support.contact-us">Contact us</a></li>
+            <li ng-class="{ active: isActiveNav($state,'help-support.faqs') }"><a ui-sref="help-support.faqs">FAQs</a></li>
+        </ul>
+        <div ng-include src="'partials/navs/sub_right.html'"></div>
+    </div>
+</nav>

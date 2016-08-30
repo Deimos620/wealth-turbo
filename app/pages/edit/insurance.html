@@ -1,0 +1,37 @@
+﻿<header class="sub-nav">
+    <div ng-controller="NavbarController" ng-include src="'partials/navs/sub_addedit.html'"></div>
+</header>
+<div class="container-bg dark">
+    <div class="container">
+        <h1 class="text-center">Edit my insurance details</h1>
+        <p class="text-center dev-missing-bg">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+            erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+            consequat. Duis autem vel eum
+        </p>
+
+        <div class="ui-edit-assets">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="list-group">
+                        <div class="list-group-item" ng-class="{ active: $index == $parent.currentIndex }" ng-repeat="item in items">
+                            <div ng-click="openItem($index, item.categoryType.id)">{{item.id}} - {{item.categoryType.name}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 bg-gray modal-display">
+                    <insurance-caravan           ng-if="typeID == 23"></insurance-caravan>
+                    <insurance-home-contents     ng-if="typeID == 16"></insurance-home-contents>
+                    <insurance-income-protection ng-if="typeID == 19"></insurance-income-protection>
+                    <insurance-landlord          ng-if="typeID == 22"></insurance-landlord>
+                    <insurance-life              ng-if="typeID == 18"></insurance-life>
+                    <insurance-marine            ng-if="typeID == 24"></insurance-marine>
+                    <insurance-motor             ng-if="typeID == 17"></insurance-motor>
+                    <insurance-tpd               ng-if="typeID == 20"></insurance-tpd>
+                    <insurance-trauma            ng-if="typeID == 21"></insurance-trauma>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

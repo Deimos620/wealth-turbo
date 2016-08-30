@@ -1,0 +1,44 @@
+<header class="sub-nav">
+    <div ng-controller="NavbarController" ng-include src="'partials/navs/sub_profile.html'"></div>
+</header>
+<div class="container-bg light">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1>Cancel Wealth Hub</h1>
+            </div>
+            <div class="col-sm-12">
+                <p>
+                    Are you sure you want to cancel Wealth Hub? All your data and important information will be lost
+                    if you cancel your account altogether.
+                </p>
+                <p>
+                    You can remove your safe from this computer without losing your data but you will need to download a safe again on your new
+                    computer. We can export your data to a new safe.
+                </p>
+            </div>
+        </div>
+        <div class="form-horizontal" style="margin: 0 15px;">
+            <div class="form-group" style="margin-bottom: 15px;">
+                <div class="radio">
+                    <input id="option1" type="radio" value="digitalSafe" ng-model="cancelOption">
+                    <label for="option1"><span><span></span></span> I want to remove my digital safe from this PC only.</label>
+                </div>
+                <p>Note: If you have a digital safe set up on additional PCs you may wish to delete the digital safe from these machines also.</p>
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <div class="radio">
+                    <input id="option2" type="radio" value="account" ng-model="cancelOption">
+                    <label for="option2"><span><span></span></span> I want to cancel my Wealth Hub account altogether.</label>
+                </div>
+                <p>This will delete both your Wealth Hub account and your digital safe on this PC.</p>
+            </div>
+        </div>
+        <!--SAVE BUTTON-->
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-primary" ng-click="proceed()">PROCEED</button>
+            </div>
+        </div>
+    </div>
+</div>

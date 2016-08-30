@@ -1,0 +1,29 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h1 style="color:#FFFFFF;">Download my digital safe</h1>
+            <p style="margin:15px 0"><img src="img/download-button.png" /></p>
+            <p style="color:#838383;">
+                To provide secure and private access to your online accounts, Wealth Hub uses a digital safe. The safe is stored on your device and
+                it's where your usernames and passwords are encrypted. When you access your online accounts through Wealth Hub, your login
+                information travels between your digital safe and that account provider. Your login credentials are never seen, collected, or stored
+                by us and are never disclosed to any third party. When you log off from Wealth Hub, your digital safe is locked ensuring your details
+                are kept secure.
+            </p>
+            <div class="checkbox" ng-show="!dsInstalled">
+                <input id="option" type="checkbox" ng-model="dsTerms">
+                <label for="option" style="color: #FFFFFF"><span><span></span></span> I accept the terms and conditions</label>
+            </div>
+        </div>
+        <div class="col-sm-4 col-sm-offset-4" style="margin-top:25px;" ng-show="!dsInstalled">
+            <div>
+                <button class="btn btn-primary" style="width:100%;" ng-click="downloadSafe()">DOWNLOAD MY SAFE</button>
+            </div>
+        </div>
+        <div class="col-sm-4 col-sm-offset-4" style="margin-top:25px;" ng-show="dsInstalled">
+            <div>
+                <button class="btn btn-primary" style="width:100%;" ng-click="afterDownload()">PROCEED</button>
+            </div>
+        </div>
+    </div>
+</div>

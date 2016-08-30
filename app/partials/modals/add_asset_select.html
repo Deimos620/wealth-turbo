@@ -1,0 +1,91 @@
+﻿<div style="max-width: 550px;">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="closeModal()"><i class="fa fa-times"></i></button>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h4 class="modal-title">Add an asset</h4>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-4 col-xs-6">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="openFormModal('asset_property')">
+                            <span id="sp" class="img asset-real-estate">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'asset_property'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Property</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="openFormModal('asset_invShare')">
+                            <span class="img asset-investment-and-shares">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'asset_invShare'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Investment &amp; shares</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="openFormModal('asset_super')">
+                            <span class="img asset-super">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'asset_super'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Super</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="openFormModal('asset_vehicleLuxuryItem')">
+                            <span class="img asset-vehicle-and-luxury">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'asset_vehicleLuxuryItem'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Vehicles &amp; luxury items</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="openFormModal('asset_cash')">
+                            <span class="img asset-cash">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'asset_cash'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Cash</p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-6">
+                <div class="icon-container">
+                    <div class="icon">
+                        <a ng-click="openFormModal('asset_other')">
+                            <span class="img asset-other">
+                                <i class="selected-item fa fa-check" ng-show="completedItem == 'asset_other'"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <p>Other</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <!--<a class="dark" ui-sref="add.account">or I can automatically pull in my asset details</a>-->
+            </div>
+        </div>
+    </div>
+</div>

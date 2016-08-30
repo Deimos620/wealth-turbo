@@ -1,0 +1,99 @@
+﻿<div style="width: 630px;">
+    <div class="modal-header">
+        <button type="button" class="btn btn-default pull-left" ng-click="closeModal()">BACK</button>
+        <button type="button" class="close" ng-click="closeModal()"><i class="fa fa-times"></i></button>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h4 class="modal-title">Add your superannuation</h4>
+                <p class="text-center">Add the details of your super to have this included in your net wealth, or <a href="#">automatically connect</a> to this asset</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Super provider</label>
+                <div class="col-sm-8 col-xs-12">
+                    <select class="form-control custom-select" ng-options="opt.name for opt in types.financialInstitutions track by opt.id" ng-model="assetItem.super.superProvider" name="assetItem-super-superProvider" validation="required">
+                        <option value="">Please select...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Description</label>
+                <div class="col-sm-8 col-xs-12">
+                    <input type="text" class="form-control" ng-model="assetItem.description" name="assetItem-description" validation="required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Super balance</label>
+                <div class="col-sm-8 col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="text" class="form-control" ng-model="assetItem.super.balance" name="assetItem-super-balance" validation="numeric:alt=Please enter a dollar amount as numbers only e.g. 450000.00|required" validation-error-to="assetItem-super-balance" />
+                    </div>
+                    <div class="validation text-danger" id="assetItem-super-balance"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Is your super linked to any of these accounts?</label>
+                <div class="col-sm-6 col-xs-8">
+                    <select multiple class="form-control" ng-model="assetItem.accounts" ng-disabled="noLinkedAccount">
+                        <option ng-repeat="opt in accounts" value="{{opt.id}}" ng-if="opt.categoryType.id == filterlist.assetSuperAnnuation" >{{opt.accountName}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-2 col-xs-4">
+                    <div class="form-selection">
+                        <label>
+                            <input type="checkbox" ng-model="noLinkedAccount" />
+                            <span class="round-selection opt-no">NO</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Do you have insurance in your super fund?</label>
+                <div class="col-sm-8 col-xs-12">
+                    <label class="form-selection">
+                        <input type="radio" ng-model="hasInsurance" name="hasInsurance" data-ng-value="true" validation="required" validation-error-to="hasInsurance" />
+                        <span class="round-selection opt-yes">YES</span>
+                    </label>
+                    <label class="form-selection">
+                        <input type="radio" ng-model="hasInsurance" name="hasInsurance" data-ng-value="false" validation="required" validation-error-to="hasInsurance" />
+                        <span class="round-selection opt-no">NO</span>
+                    </label>
+                    <div class="validation move-down text-danger" id="hasInsurance"></div>
+                    <button class="btn btn-default" data-toggle="popover" data-placement="right" data-title="Add Insurance Details" data-trigger="popover" data-content="Do you have insurance for this asset?">?</button>
+                </div>
+            </div>
+            <div class="form-group" ng-show="hasInsurance">
+                <label class="col-sm-4 col-xs-12 control-label">Is it one of these?</label>
+                <div class="col-sm-6 col-xs-8">
+                    <select class="form-control" ng-model="assetItem.insurances" ng-disabled="noLinkedInsurance">
+                        <option value="">Please select...</option>
+                        <option ng-repeat="opt in insurances" value="{{opt.id}}">{{opt.description}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-2 col-xs-4">
+                    <div class="form-selection">
+                        <label>
+                            <input type="checkbox" ng-model="noLinkedInsurance" />
+                            <span class="round-selection opt-no">NO</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-primary" ng-show="isAdd" ng-click="saveAsset('super')">SAVE</button>
+                <button class="btn btn-primary" ng-show="!isAdd" ng-click="updateItem()">UPDATE</button>
+                <button class="btn btn-default" ng-show="!isAdd" ng-click="removeItem()">DELETE</button>
+            </div>
+        </div>
+    </div>
+</div>

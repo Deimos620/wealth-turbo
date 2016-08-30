@@ -1,0 +1,98 @@
+﻿<div style="width: 630px;">
+    <div class="modal-header">
+        <button type="button" class="btn btn-default pull-left" ng-click="closeModal()">BACK</button>
+        <button type="button" class="close" ng-click="closeModal()"><i class="fa fa-times"></i></button>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h4 class="modal-title">Add your investment home loan</h4>
+                <p class="text-center">Add the details of your investment home loan to have this included in your net wealth, or <a ui-sref="add.account">automatically connect</a> to this liability</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Financial institution</label>
+                <div class="col-sm-8 col-xs-12">
+                    <select class="form-control custom-select" ng-options="opt.name for opt in types.financialInstitutions track by opt.id" ng-model="liabilityItem.financialInstitution" name="liabilityItem-financialInstitution" validation="required">
+                        <option value="">Please select...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Description</label>
+                <div class="col-sm-8 col-xs-12">
+                    <input type="text" class="form-control" ng-model="liabilityItem.description" name="liabilityItem-description" validation="required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Balance</label>
+                <div class="col-sm-8 col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">-$</span>
+                        <input type="text" class="form-control" ng-model="liabilityItem.balance" name="liabilityItem-balance" validation="numeric:alt=Please enter a dollar amount as numbers only e.g. 450000.00|required" validation-error-to="liabilityItem-balance" />
+                    </div>
+                    <div class="validation text-danger" id="liabilityItem-balance"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Is this loan linked to any of these properties?</label>
+                <div class="col-sm-6 col-xs-8">
+                    <select multiple class="form-control" ng-model="liabilityItem.assets" ng-disabled="noLinkedAsset">
+                        <option ng-repeat="opt in assets" value="{{opt.id}}" ng-if="opt.categoryType.id == filterlist.liabilityInvestmentHomeloan">{{opt.description}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-2 col-xs-4">
+                    <div class="form-selection">
+                        <label>
+                            <input type="checkbox" ng-model="noLinkedAsset"/>
+                            <span class="round-selection opt-no">NO</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" ng-show="noLinkedAsset">
+                <label class="col-sm-4 col-xs-12 col-sm-offset-4 control-label">Add a property to my list of assets?</label>
+                <div class="col-sm-4 col-xs-12">
+                    <label class="form-selection">
+                        <input type="radio" ng-model="addAsset.property" name="addAsset-property" data-ng-value="true" validation="required" validation-error-to="addAsset-property" ng-disabled="!noLinkedLiability" />
+                        <span class="round-selection opt-yes">YES</span>
+                    </label>
+                    <label class="form-selection">
+                        <input type="radio" ng-model="addAsset.property" name="addAsset-property" data-ng-value="false" validation="required" validation-error-to="addAsset-property" ng-disabled="!noLinkedLiability" />
+                        <span class="round-selection opt-no">NO</span>
+                    </label>
+                    <div class="validation move-down text-danger" id="addAsset-property"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Repayment</label>
+                <div class="col-sm-8 col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="text" class="form-control" ng-model="liabilityItem.investmentHomeLoan.repayment" name="liabilityItem-investmentHomeLoan-repayment" validation="numeric:alt=Please enter a dollar amount as numbers only e.g. 450000.00|required" validation-error-to="liabilityItem-investmentHomeLoan-repayment" />
+                    </div>
+                    <div class="validation text-danger" id="liabilityItem-investmentHomeLoan.repayment"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-8 col-xs-12 col-sm-offset-4">
+                    <select class="form-control custom-select" ng-options="opt.name for opt in types.repaymentFrequencies track by opt.id" ng-model="liabilityItem.investmentHomeLoan.repaymentFrequency" name="liabilityItem-investmentHomeLoan-repaymentFrequency" validation="required">
+                        <option value="">Repayment frequency</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-primary" ng-show="isAdd" ng-click="saveLiability('investmentHomeLoan')">SAVE</button>
+                <button class="btn btn-primary" ng-show="!isAdd" ng-click="updateItem()">UPDATE</button>
+                <button class="btn btn-default" ng-show="!isAdd" ng-click="removeItem()">DELETE</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h2 class="login-text" style="color: #FFF;">Firstmac or loans.com.au customer?</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <label class="page-selection">
+                <input type="radio" name="selection" value="yes" />
+                <div class="round-selection">
+                    <oauth2 authorization-url="{{urls.authSite}}"
+                            sign-in-text="Yes"
+                            sign-out-url="{{urls.endSession}}"                 
+                            sign-out-append-token="true"
+                            sign-out-redirect-url="{{urls.siteBase}}"
+                            client-id="wealthhub"
+                            redirect-url="{{urls.siteBase}}"
+                            response-type="id_token token"
+                            scope="openid profile roles sitetype crumbsidentity customeridentity"
+                            acr_values="tenant:wealthhub_ultracs signup:false">
+                    </oauth2>
+                </div>
+            </label>
+            <label class="page-selection">
+                <input type="radio" name="selection" value="no" />
+                <div class="round-selection">
+                    <oauth2 authorization-url="{{urls.authSite}}"
+                            sign-in-text="No"
+                            sign-out-url="{{urls.endSession}}"                 
+                            sign-out-append-token="true"
+7                            sign-out-redirect-url="{{urls.siteBase}}"
+                            client-id="wealthhub"
+                            redirect-url="{{urls.siteBase}}"
+                            response-type="id_token token"
+                            scope="openid profile roles sitetype crumbsidentity customeridentity"
+                            acr_values="tenant:wealthhub_crumbs signup:false">
+                    </oauth2>
+                </div>
+            </label>
+        </div>
+    </div>
+</div>

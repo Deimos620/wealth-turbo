@@ -1,0 +1,51 @@
+﻿<div style="width: 630px;">
+    <div class="modal-header">
+        <button type="button" class="btn btn-default pull-left" ng-click="closeModal()">BACK</button>
+        <button type="button" class="close" ng-click="closeModal()"><i class="fa fa-times"></i></button>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h4 class="modal-title">Add your liability</h4>
+                <p class="text-center">Add the details of your liability to have this included in your net wealth, or <a ui-sref="add.account">automatically connect</a> to this liability</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Financial institution</label>
+                <div class="col-sm-8 col-xs-12">
+                    <select class="form-control custom-select" ng-options="opt.name for opt in types.financialInstitutions track by opt.id" ng-model="liabilityItem.financialInstitution" name="liabilityItem-financialInstitution" validation="required">
+                        <option value="">Please select...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Description</label>
+                <div class="col-sm-8 col-xs-12">
+                    <input type="text" class="form-control" ng-model="liabilityItem.description" name="liabilityItem-description" validation="required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Balance</label>
+                <div class="col-sm-8 col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">-$</span>
+                        <input type="text" class="form-control" ng-model="liabilityItem.balance" name="liabilityItem-balance" validation="numeric:alt=Please enter a dollar amount as numbers only e.g. 450000.00|required" validation-error-to="liabilityItem-balance" />
+                    </div>
+                    <div class="validation text-danger" id="liabilityItem-balance"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-primary" ng-show="isAdd" ng-click="saveLiability('other')">SAVE</button>
+                <button class="btn btn-primary" ng-show="!isAdd" ng-click="updateItem()">UPDATE</button>
+                <button class="btn btn-default" ng-show="!isAdd" ng-click="removeItem()">DELETE</button>
+            </div>
+        </div>
+    </div>
+</div>

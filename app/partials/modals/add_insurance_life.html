@@ -1,0 +1,86 @@
+﻿<div style="width: 630px;">
+    <div class="modal-header">
+        <button type="button" class="btn btn-default pull-left" ng-click="closeModal()">BACK</button>
+        <button type="button" class="close" ng-click="closeModal()"><i class="fa fa-times"></i></button>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h4 class="modal-title">Add your life insurance</h4>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Description</label>
+                <div class="col-sm-8 col-xs-12">
+                    <input type="text" class="form-control" ng-model="insuranceItem.description" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Details of cover</label>
+                <div class="col-sm-8 col-xs-12">
+                    <select class="form-control custom-select" ng-options="opt.name for opt in types.financialInstitutions track by opt.id" ng-model="insuranceItem.insurer"name="insuranceItem-insurer" validation="required">
+                        <option>Insurance company</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-8 col-xs-12 col-sm-offset-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="text" class="form-control" placeholder="Cover amount" ng-model="insuranceItem.coverAmount" name="insuranceItem-coverAmount" validation="numeric:alt=Please enter a dollar amount as numbers only e.g. 450000.00|required" validation-error-to="insuranceItem-coverAmount" />
+                    </div>
+                    <div class="validation text-danger" id="insuranceItem-coverAmount"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-8 col-xs-12 col-sm-offset-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="text" class="form-control" placeholder="Premium" ng-model="insuranceItem.premium" name="insuranceItem-premium" validation="numeric:alt=Please enter a dollar amount as numbers only e.g. 450000.00|required" validation-error-to="insuranceItem-premium" />
+                    </div>
+                    <div class="validation text-danger" id="insuranceItem-premium"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-8 col-xs-12 col-sm-offset-4">
+                    <select class="form-control custom-select" ng-options="opt.name for opt in types.repaymentFrequencies track by opt.id" ng-model="insuranceItem.premiumFrequency" name="insuranceItem-premiumFrequency" validation="required">
+                        <option value="">Repayment frequency</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Expiry date</label>
+                <div class="col-sm-8 col-xs-12">
+                    <ng-bs3-datepicker ng-model="insuranceItem.policyExpiry" language="en-au" date-format="DD/MM/YYYY" name="insuranceItem-policyExpiry" validation="required" validation-error-to="insuranceItem-policyExpiry"></ng-bs3-datepicker>
+                    <div class="validation-offset validation text-danger" id="insuranceItem-policyExpiry"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Is this insurance linked to your super?</label>
+                <div class="col-sm-8 col-xs-12">
+                    <label class="form-selection">
+                        <input type="radio" ng-model="insuranceItem.life.super" name="insuranceItem-life-super" data-ng-value="true" validation="required" validation-error-to="insuranceItem-life-super" />
+                        <span class="round-selection opt-yes">YES</span>
+                    </label>
+                    <label class="form-selection">
+                        <input type="radio" ng-model="insuranceItem.life.super" name="insuranceItem-life-super" data-ng-value="false" validation="required" validation-error-to="insuranceItem-life-super" />
+                        <span class="round-selection opt-no">NO</span>
+                    </label>
+                    <div class="validation move-down text-danger" id="insuranceItem-life-super"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-primary" ng-show="isAdd" ng-click="saveInsurance('life')">SAVE</button>
+                <button class="btn btn-primary" ng-show="!isAdd" ng-click="updateItem()">UPDATE</button>
+                <button class="btn btn-default" ng-show="!isAdd" ng-click="removeItem()">DELETE</button>
+            </div>
+        </div>
+    </div>
+</div>

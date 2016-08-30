@@ -1,0 +1,51 @@
+<header class="sub-nav">
+    <div ng-controller="NavbarController" ng-include src="'partials/navs/sub_profile.html'"></div>
+</header>
+<div class="container-bg light">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1>My login details</h1>
+            </div>
+        </div>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Registered email</label>
+                <div class="col-sm-offset-1 col-sm-7 col-xs-12">
+                    <input type="text" class="form-control" ng-model="loginData.email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Password</label>
+                <div class="col-sm-offset-1 col-sm-7 col-xs-12">
+                    <input type="password" class="form-control" ng-model="loginData.password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">Confirm password</label>
+                <div class="col-sm-offset-1 col-sm-7 col-xs-12">
+                    <input type="password" class="form-control" ng-model="loginData.confirmPassword">
+                </div>
+            </div>
+        </div>
+        <div class="form-horizontal" ng-show="smsData.requested">
+            <div class="form-group">
+                <label class="col-sm-4 col-xs-12 control-label">SMS code</label>
+                <div class="col-sm-offset-1 col-sm-7 col-xs-12">
+                    <input type="text" class="form-control" ng-model="smsData.code">
+                </div>
+            </div>
+        </div>
+        <!--SAVE BUTTON-->
+        <div class="row" ng-show="!smsData.requested">
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-primary" ng-click="requestSMSCode()">REQUEST SMS CODE</button>
+            </div>
+        </div>
+        <div class="row" ng-show="smsData.requested">
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-primary" ng-click="updateLoginDetails()">UPDATE LOGIN DETAILS</button>
+            </div>
+        </div>
+    </div>
+</div>
